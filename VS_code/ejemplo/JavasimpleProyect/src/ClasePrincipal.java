@@ -12,4 +12,5 @@ public class ClasePrincipal {
 
         System.out.println(AlgoIntermedio.Numero);
     }
+    
 }
