@@ -1,0 +1,19 @@
+import java.io.Console; // Necesario para que sepa lo que es Console
+
+public class ejemplo {
+	public static void main(String[] argumentos) {
+
+		String nombre, apellido1, apellido2;
+
+		//Vamos a declarar una variable de tipo console
+		Console c = System.console();
+
+		System.out .println("Escriba su nombre : ");
+		nombre = c.readLine(); // Esto es para poder leer y guardar datos introducidos por el usuario
+		(String[] args) {
+        // TODO code application logic here
+        System.out.println("Hola mundo");
+    }
+    	
+	}	
+}
