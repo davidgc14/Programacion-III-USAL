@@ -8,6 +8,6 @@ public class Enumeracion_1 {
         // Colores es para nosotros ahora un nuevo tipo de variable
         Colores c1 = Colores.ROJO;
         System.out.println(c1);
-
+        
     }
 }
