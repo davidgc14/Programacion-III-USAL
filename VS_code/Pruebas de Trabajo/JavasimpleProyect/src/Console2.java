@@ -31,12 +31,17 @@ public class Console2 {
             // esto no es una cadena, es una lista de caracteres. y no son compatibles
             char[] pwdCharList = c.readPassword("%nPor favor, %s, Introduzca al contraseña: ", nombre);
 
-            String pwdString = new String(pwdCharList);
+            // paso de char a string
+            String pwdString = new String(pwdCharList); 
             c.printf("%n%nSu contrasena es %s %n%n", pwdString);
 
-        } else {
-            c.printf("La terminal no está abierta");
-        }
+            // impresion de dia y fecha
+            c.printf("Fecha: %s de %s %n", numeroDia, nombreMes);
+
+
+        } //else {
+            //c.printf("La terminal no está abierta");
+        //}
 
     }
 }
