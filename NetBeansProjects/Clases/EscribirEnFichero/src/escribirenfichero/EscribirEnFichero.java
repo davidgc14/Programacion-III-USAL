@@ -17,4 +17,3 @@ public class EscribirEnFichero {
         pw.close(); // cerramos el fichero IMPORTANTE
     }
 }
-        // l archivo se ha guardado en el origen del workspace. En netbeans lo guarda en la carpeta del proyecto
