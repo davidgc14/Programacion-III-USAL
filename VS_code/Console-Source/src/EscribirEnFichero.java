@@ -10,10 +10,10 @@ public class EscribirEnFichero {
 
         pw = new PrintWriter(new File("milnumeros.txt")); // Creamos y abrimos el fichero
 
-        for(int i = 1; i <= 100; i++) {
+        for(int i = 1; i <= 1000; i++) {
             pw.printf("%d%n", i);
         }
 
-        pw.close(); // cerramos el fichero
+        pw.close(); // cerramos el fichero IMPORTANTE
     }
 }
