@@ -19,5 +19,6 @@ public class CreacionStr {
         String u = new String(t); // creamos un nuevo hueco de memoria, un clon
         out.printf("u vale igual que t: %s", u);
 
+        
     }
 }
