@@ -11,11 +11,11 @@ public class sol_07 {
         
         clear();
 
-        kilosPeras = readFloat("Cuantos kilos de peras?");
-        kilosManzs = readFloat("Cuantos kilos de Manzs?");
+        kilosPeras = readFloat("Cuantos kilos de peras?  ");
+        kilosManzs = readFloat("Cuantos kilos de Manzs?  ");
 
-        preciokilosManzs = readFloat("Cuanto cuesta un kilo de manzs?");
-        preciokilosPeras = readFloat("Cuanto cuesta un kilo de Peras?");
+        preciokilosManzs = readFloat("Cuanto cuesta un kilo de manzs?  ");
+        preciokilosPeras = readFloat("Cuanto cuesta un kilo de Peras?  ");
 
         totalSinIVA = kilosManzs*preciokilosManzs + 
                         kilosPeras*preciokilosPeras;
@@ -24,9 +24,9 @@ public class sol_07 {
 
         Totalpagado = totalSinIVA + ivaPagado;
 
-        System.out.printf("Total sin IVA : %t%t%6.2f %n", totalSinIVA);
-        System.out.printf("IVA añadido   : %t%t%6.2f %n", ivaPagado);
-        System.out.printf("Total a pagar : %t%t%6.2f %n", Totalpagado);
+        System.out.printf("Total sin IVA : %6.2f %n", totalSinIVA);
+        System.out.printf("IVA añadido   : %6.2f %n", ivaPagado);
+        System.out.printf("Total a pagar : %6.2f %n", Totalpagado);
         
     }
 }
