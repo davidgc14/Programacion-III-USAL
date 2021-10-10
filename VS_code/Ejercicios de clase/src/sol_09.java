@@ -19,7 +19,7 @@ public class sol_09 {
                 
                 System.out.printf("Nota del alumno %d, Parcial %d : ", i+1, j+1);
                 notas[i][j] = readFloat("");
-                auxSuma =+ notas[i][j];
+                auxSuma += notas[i][j];
             } // end for j
 
             // Cálculo de la media
