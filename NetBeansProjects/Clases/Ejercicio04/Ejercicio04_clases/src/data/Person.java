@@ -5,6 +5,10 @@ public class Person {
     // Estos son los atributos de cada persona
     
     
+    /*
+    al llamarlo private, no aparece en las opciones 
+    de la clase principal, pero sigue siendo usable
+    */
     private String name;
     private int age;
     private float height;
@@ -31,7 +35,7 @@ public class Person {
         this.age = edad;
         this.height = talla;
         this.name = nombre;
-    }
+    } // End of Person
     
     /*
     Devuelve en forma de cadena los atributos de la clase
@@ -43,6 +47,35 @@ public class Person {
     public String toString() {
         return String.format("|%25s|%12d|%14.2f|", this.name, this.height, this.age);
     }
+
+    /*
+    Boton derecho
+    insert code...
+    Getters and Setters
+    Select all
+    */
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
     
-    
-}
+} // End of class
