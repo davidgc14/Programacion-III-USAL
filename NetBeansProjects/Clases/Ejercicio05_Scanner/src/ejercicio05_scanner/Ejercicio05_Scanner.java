@@ -54,6 +54,7 @@ public class Ejercicio05_Scanner {
                 System.out.printf("El más alto es Harry : " + tallaC);
             }
         } // end of if "alturas"
+        System.out.printf("%n");
         
         
         
@@ -64,6 +65,7 @@ public class Ejercicio05_Scanner {
         } else {
             System.out.printf("El más pesado es Harry : " + pesoC);
         } // end of if "pesos"
+        System.out.printf("%n");
 
     } // end of main
     
