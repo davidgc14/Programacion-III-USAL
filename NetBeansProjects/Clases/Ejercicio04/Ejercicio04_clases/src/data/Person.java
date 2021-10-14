@@ -37,6 +37,7 @@ public class Person {
     Devuelve en forma de cadena los atributos de la clase
     
     Override está para sobreescribir un método ya existente
+    toString ya existe, por eso lo redefinimos
     */
     @Override
     public String toString() {
