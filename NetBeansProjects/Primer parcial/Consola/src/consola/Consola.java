@@ -12,7 +12,10 @@ public class Consola {
                 String pswString = new String(pswChar);
                 c.printf("Su contraseña es - %s -%n", pswString);
                 
-                
+                float n;
+                c.printf("Introduzca un numero cualquiera por pantalla : ");
+                n = Float.parseFloat(c.readLine());
+                c.printf("%nEl numero introducido es %6.2f%n", n);
 	} // end if
         else {
             System.err.println("No se pudo ejecutar Console");
