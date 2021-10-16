@@ -1,0 +1,31 @@
+TRANSFORMAR CHAR A STRING
+	char[] vectorChar = ...;
+	String nombre = new String(vectorChar);
+
+TRANSFORMAR STRING A ALGO
+	Float.parseFloat(str);
+
+LECTURA DATOS POR PANTALLA
+	c.readPassword();
+	c.readLine(); (solo acepta string, usar parseFloat para numeros)
+	readFloat(); (de la biblioteca)
+	sc.nextFloat();	
+
+MEDIR LONGITUDES
+	var.length      si es un vector
+	var.length()    si es un String
+	var.size()      si es una lista
+
+PRINTWRITER
+	import java.io.FileNotFoundException, e indicar el throws
+	PrintWriter pw = new PrintWriter(".txt")
+	pw.println(), pw.close()
+		
+CONSOLE
+	import java.io.Console
+	Console c = System.console();
+
+SCANNER
+	import java.util.Scanner;
+	Scanner sc = new Scanner(System.in);
+	sc.nextFloat(); (Para la lectura de datos)
