@@ -62,7 +62,7 @@ public class Ejercicio10 {
             media[i] = suma(notas[i]) / NumeroParciales;
             System.out.printf("Media del alumno %d : %4.2f%n%n", i+1, media[i]);
         }
-        // para poder dividir entre un float importante que la variable no sea int, sino var
+        // la division entre float y int da como resultado un float
 
     } // end of main()
 
