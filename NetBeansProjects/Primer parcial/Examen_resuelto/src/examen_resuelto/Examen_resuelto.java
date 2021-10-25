@@ -1,6 +1,6 @@
 package examen_resuelto;
 
-import com.coti.tools.*;
+import static com.coti.tools.Esdia.*;
 
 
 public class Examen_resuelto {
@@ -19,7 +19,7 @@ public class Examen_resuelto {
         float costeSinIVA = 0.0f;
         float masCaro = pre[0];
         for (int i = 0 ; i < 5 ; i++) {
-            nom[i] = readSrting("Nombre del modelo           " + i + " : ");
+            nom[i] = readString("Nombre del modelo           " + i + " : ");
             num[i] = readInt   ("Numero de zapatos del modelo" + i + " : ");
             pre[i] = readFloat ("Precio del modelo           " + nom[i] + " : ");
             costeSinIVA += pre[i] * num[i];
@@ -28,6 +28,11 @@ public class Examen_resuelto {
             } // end if
         
         } // end for
+        
+        // ===============
+        // SIN TERMINAR
+        // ===============
+        
     } // end of main
     
 } // end of class
