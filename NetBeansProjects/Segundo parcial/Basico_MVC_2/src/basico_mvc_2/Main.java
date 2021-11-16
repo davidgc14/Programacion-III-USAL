@@ -1,20 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package basico_mvc_2;
 
-/**
- *
- * @author curbelo
- */
+// import static com.coti.tools.Esdia.*;
+import static com.coti.tools.DiaUtil.*;
+
+import view.View;
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        View v = new View();
+
+        clear();
+
+        v.imprimir("Bienvenido al MVC completo");
+
+        v.runMenu(    "1. Pedir datos%n"
+                    + "2. Calcular suma%n"
+                    + "3. Mostrar resultado%n"
+                    + "p. Salir%n"
+                    + " -->   ");
+        
+        showFinalTime();
     }
     
 }
