@@ -12,7 +12,7 @@ public class Main {
 
         clear();
 
-        // v.imprimir();
+        v.imprimir();
         // v.runMenu();
 
         showFinalTime();
