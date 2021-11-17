@@ -24,9 +24,7 @@ public class Lectura_datos_escritorio {
             return;
         }
         
-        for (String[] record : data) {
-            lista.add(record);
-        }
+        
         
     }
     
