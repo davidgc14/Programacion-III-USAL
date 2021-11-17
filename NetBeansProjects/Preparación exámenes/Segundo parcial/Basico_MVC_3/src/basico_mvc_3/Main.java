@@ -12,7 +12,7 @@ public class Main {
 
         clear();
 
-        v.imprimir();
+        v.imprimir("Bienvenido a un nuevo ejemplo de MVC");
         // v.runMenu();
 
         showFinalTime();
