@@ -15,7 +15,7 @@ public class Main {
                 + "4- Ordenar la lista general de apellidos y nombre%n"
                 + "5- Exportar lista general de alumnos%n"
                 + "6- Exportar lista de alumnos con asistencia%n"
-                + "7- salir");
+                + "q- salir");
     }
     
 }

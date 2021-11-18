@@ -1,5 +1,7 @@
 package view;
 
+// REVISADO Y CORRECTO
+
 import static com.coti.tools.Esdia.*;
 // import static com.coti.tools.DiaUtil.*;
 import static com.coti.tools.OpMat.*; 
@@ -42,16 +44,16 @@ public class View {
     }
 
 
-    private void mostrarListaGeneral() throws Exception {
+    private void mostrarListaGeneral() {
         underline2("Mostrar lista general de alumnos");
         String[][] tmp = c.obtenerTablaGeneral(); // aqui se puede usar tambien var tmp = c.obtenerTablaGeneral();
 
-        if (tmp == null) {
-            System.out.printf("%n%nERROR: no hay lista de alumnos%n%n");
-        } else {
-            System.out.printf("%n%nLista general de alumnos%n%n");
+        try {
             printToScreen3(tmp);
+        } catch (Exception ex) {
+            System.out.printf("%n%nERROR: no se pudo mostrar la lista%n%n");
         }
+
     }
 
     private void mostrarListaBajaAsistencia() {
@@ -91,7 +93,5 @@ public class View {
             System.out.printf("%n%nERROR: no se pudo exportar la lista%n%n");
         }
     }
-
-
 
 }

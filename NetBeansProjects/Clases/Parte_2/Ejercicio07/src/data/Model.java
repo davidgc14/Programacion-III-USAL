@@ -1,8 +1,10 @@
 package data;
 
+// REVISADO Y CORRECTO
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Comparator.*; // NUEVO!!!
+import java.util.Comparator; // NUEVO!!!
 
 
 public class Model {
@@ -115,14 +117,14 @@ public class Model {
 
 
     public void ordenarListaGeneral() {
-        listaAlumnos.sort(Comparator.comparing(Alumno::getPrimerApellido))
+        listaAlumnos.sort(Comparator.comparing(Alumno::getPrimerApellido)
             .thenComparing(Alumno::getSegundoApellido)
-            .thenComparing(Alumno::getNombre);   
+            .thenComparing(Alumno::getNombre));   
     }
 
 
     public void ordenarPorAsistencia() {
-        listaAlumnos.sort(Comparator.comparing(Alumno::getAsistencias));
+        listaAlumnos.sort(Comparator.comparing(Alumno::numAsistencias));
     }
 
 
