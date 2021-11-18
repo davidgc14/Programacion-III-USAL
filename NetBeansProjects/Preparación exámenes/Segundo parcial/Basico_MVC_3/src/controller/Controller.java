@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
-/**
- *
- * @author curbelo
- */
+import data.Model;
+import java.io.File;
+
 public class Controller {
     
+    Model m = new Model();
+
+    public String leerArchivo(File archivo) {
+        return m.leerArchivo(archivo);
+    }
+
+    public void imprimirDatos() {
+        m.imprimirDatos();
+    }
 }
