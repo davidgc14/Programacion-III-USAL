@@ -1,20 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package manejodefacturas;
 
-/**
- *
- * @author curbelo
- */
+import view.View;
+import static com.coti.tools.DiaUtil.*;
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+        
+        clear();
+
+        View v = new View();
+
+        v.runMenu("%n1- Importar facturas de disco"
+                + "%n2- Imprimir facturas seleccionadas"
+                + "%nq- Salir"
+                + "%n%n     >    ");
+        
+        showFinalTime();
+        System.out.println("Fin del programa");
     }
     
 }
