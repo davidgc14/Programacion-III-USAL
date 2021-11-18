@@ -53,6 +53,7 @@ public class Model {
 
         // List<String> aux = new ArrayList<>();
         // int aux;
+        /*
 
         for (String[] s : this.lista) {
             for (String sub_s : s) {
@@ -61,5 +62,7 @@ public class Model {
             }
             System.out.println();
         }
+        */
+        ;
     }
 }
