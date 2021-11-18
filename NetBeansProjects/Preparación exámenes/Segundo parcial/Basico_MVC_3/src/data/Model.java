@@ -51,9 +51,13 @@ public class Model {
 
     public void imprimirDatos() {
 
+        // List<String> aux = new ArrayList<>();
+        // int aux;
+
         for (String[] s : this.lista) {
             for (String sub_s : s) {
-                System.out.printf("%-5s", sub_s);
+
+                System.out.printf("%-20s", sub_s);
             }
             System.out.println();
         }

@@ -21,7 +21,7 @@ public class Main {
         v.runMenu("%n1- Leer Datos del archivo"
                 + "%n2- imprimir datos por pantalla"
                 + "%nq- salir"
-                + "%n   >   ");
+                + "%n      >   ");
 
         showFinalTime();
     }
