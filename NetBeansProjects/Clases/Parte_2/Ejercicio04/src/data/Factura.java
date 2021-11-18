@@ -19,7 +19,7 @@ public class Factura {
     
     
     // Cosntructor por defecto de la clase Factura
-    public Factura(float importe, float descuento, float tipo_de_IVA, String concepto, String fecha, String nombre, String NIF, String razon_social) {
+    public Factura(String concepto, float descuento, String fecha, float importe, String NIF, String nombre, String razon_social, float tipo_de_IVA) {
         this.importe = importe;
         this.descuento = descuento;
         this.tipoDeIVA = tipo_de_IVA;
