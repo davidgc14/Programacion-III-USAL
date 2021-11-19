@@ -12,7 +12,7 @@ public class Main {
         
         clear();
 
-        v.runMenu("%n1- Leer datos"
+        v.runMenu("%n1- Leer datos (automatizado)"
                 + "%n2- Mostrar datos"
                 + "%n3- Añadir usuario"
                 + "%nq- Salir"

@@ -17,7 +17,7 @@ public class View {
         
         String option;
         
-
+        this.leerDatos();
         boolean salir = false;
 
         do {
@@ -25,7 +25,7 @@ public class View {
             option = readString(menu);
 
             switch (option) {
-                case "1" -> this.leerDatos();
+                case "1" -> System.out.printf("%nEsta función ya ha sido realizada%n%n");
                 case "2" -> this.mostrarDatos();
                 case "3" -> this.añadirUsuario();
                 case "q" -> salir = true;
