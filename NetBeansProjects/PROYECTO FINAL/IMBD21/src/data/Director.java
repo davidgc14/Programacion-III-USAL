@@ -1,28 +1,27 @@
-package data.data_films;
+package data;
 
-public class Actor {
-
+public class Director {
+    
     private String nombre;
     private String fechaNacimiento;
     private String nacionalidad;
-    private String debut;
+    private String ocupacion;
     private String[] peliculas;
 
     // CONSTRUCTOR
 
-    public Actor(String nombre, String fechaNacimiento, String nacionalidad, String debut, String[] peliculas) {
+    public Director(String nombre, String fechaNacimiento, String nacionalidad, String ocupacion, String[] peliculas) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.nacionalidad = nacionalidad;
-        this.debut = debut;
+        this.ocupacion = ocupacion;
         this.peliculas = peliculas;
     }
 
-
     // FACTORY
-    static Actor factory(String[] datos) {
-        Actor act = new Actor(datos[0], datos[1], datos[2], datos[3], datos[4].split(","));
-        return act;
+    static Director factory(String[] datos) {
+        Director dir = new Director(datos[0], datos[1], datos[2], datos[3], datos[4].split(","));
+        return dir;
     }
 
     // GETTERS & SETTERS  ---------------------------------------------------
@@ -51,12 +50,12 @@ public class Actor {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getDebut() {
-        return debut;
+    public String getOcupacion() {
+        return ocupacion;
     }
 
-    public void setDebut(String debut) {
-        this.debut = debut;
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
     }
 
     public String[] getPeliculas() {
@@ -66,12 +65,5 @@ public class Actor {
     public void setPeliculas(String[] peliculas) {
         this.peliculas = peliculas;
     }
+} // end class Director
 
-    /*
-    @Override
-    public String toString() {
-        return "Actor{" + "nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", nacionalidad=" + nacionalidad + ", debut=" + debut + ", peliculas=" + peliculas + '}';
-    }
-    */
-
-} // end class Actor

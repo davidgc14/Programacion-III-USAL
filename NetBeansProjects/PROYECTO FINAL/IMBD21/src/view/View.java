@@ -4,6 +4,11 @@ import controller.Controller;
 
 import static com.coti.tools.Esdia.*;
 
+import com.coti.tools.Rutas;
+import java.io.File;
+
+import static com.coti.tools.DiaUtil.clear;
+
 
 public class View {
 
@@ -12,10 +17,14 @@ public class View {
 
     public void runMenu(String menu) {
         
+        System.out.printf("%n%nBIENVENIDO AL PROGRAMA DE GESTIÓN DE PELÍCULAS%n%n");
+
         String option;
         boolean salir = this.inicioPrograma();
 
         while (!salir) {
+
+            clear();
             
             option = readString(menu);
 
@@ -26,7 +35,7 @@ public class View {
                 case "4" -> this.menuActores();
                 case "5" -> this.menuListados();
                 case "q" -> salir = true;
-                default  -> System.out.println("Opción incorrecta");
+                default  -> System.out.printf("%nOpción incorrecta%n");
             }
         } // end while
     } // RUN MENU
@@ -39,7 +48,86 @@ public class View {
     private boolean inicioPrograma() {
         boolean salir = false;
 
-        // PENDIENTE
+        System.out.printf("Importando archivos...%n%n");
+        File f_peliculas, f_actores, f_directores;
+        
+        // Rutas de los archivos (si existen .bin)
+        f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.bin");
+        f_actores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.bin");
+        f_directores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "directores.bin");
+
+        String error_peliculas, error_actores, error_directores;
+
+        // Si alguno de los archivos no existe, buscamos con extensión .txt
+        if (!f_peliculas.exists()) {
+            
+            f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.txt");
+
+            if (!f_peliculas.exists()) {
+                System.out.printf("%nNo se encontró el archivo de películas.%n");
+                salir = true;
+            } else {
+                error_peliculas = this.c.importarArchivo(f_peliculas);
+                if (!error_peliculas.isEmpty()) {
+                    System.out.printf(error_peliculas);
+                    salir = true;
+                }
+            }
+
+            
+        } else {
+            error_peliculas = this.c.importarArchivo(f_peliculas);
+            if (!error_peliculas.isEmpty()) {
+                System.out.printf(error_peliculas);
+                salir = true;
+            }
+        }
+
+        if (!f_actores.exists()) {
+            
+            f_actores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.txt");
+
+            if (!f_actores.exists()) {
+                System.out.printf("%nNo se encontró el archivo de actores.%n");
+                salir = true;
+            } else {
+                error_actores = this.c.importarArchivo(f_actores);
+                if (!error_actores.isEmpty()) {
+                    System.out.printf(error_actores);
+                    salir = true;
+                }
+            }
+        } else {
+            error_actores = this.c.importarArchivo(f_actores);
+            if (!error_actores.isEmpty()) {
+                System.out.printf(error_actores);
+                salir = true;
+            }
+        }
+
+        if (!f_directores.exists()) {
+            
+            f_directores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "directores.txt");
+
+            if (!f_directores.exists()) {
+                System.out.printf("%nNo se encontró el archivo de directores.%n");
+                salir = true;
+            } else {
+                error_directores = this.c.importarArchivo(f_directores);
+                if (!error_directores.isEmpty()) {
+                    System.out.printf(error_directores);
+                    salir = true;
+                }
+            }
+        } else {
+            error_directores = this.c.importarArchivo(f_directores);
+            if (!error_directores.isEmpty()) {
+                System.out.printf(error_directores);
+                salir = true;
+            }
+        }
+        
+
 
         return salir;
     }

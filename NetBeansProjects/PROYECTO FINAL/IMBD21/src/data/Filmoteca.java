@@ -3,10 +3,6 @@ package data;
 import java.util.ArrayList;
 import java.util.List;
 
-import data.data_films.Pelicula;
-import data.data_films.Director;
-import data.data_films.Actor;
-
 public class Filmoteca {
 
     List<Pelicula> peliculas = new ArrayList<>();
@@ -14,12 +10,27 @@ public class Filmoteca {
     List<Actor> actores = new ArrayList<>();
     List<String> rutasArchivos = new ArrayList<>();
 
-    public Filmoteca(List<String> rutasArchivos) {
-        this.rutasArchivos = rutasArchivos;
+
+    //public Filmoteca() {
+    //}
+
+    // SETTERS          
+
+    public void setPeliculas(List<Pelicula> peliculas) {
+        this.peliculas = peliculas;
     }
 
-    
+    public void setDirectores(List<Director> directores) {
+        this.directores = directores;
+    }
 
+    public void setActores(List<Actor> actores) {
+        this.actores = actores;
+    }
+
+    public void setRutasArchivos(List<String> rutasArchivos) {
+        this.rutasArchivos = rutasArchivos;
+    }
 
 } // end class Filmoteca
     
