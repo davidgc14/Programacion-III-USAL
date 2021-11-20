@@ -3,10 +3,6 @@ package view;
 import controller.Controller;
 
 import static com.coti.tools.Esdia.*;
-import static com.coti.tools.OpMat.*;
-
-import com.coti.tools.Rutas;
-import java.io.File;
 
 
 public class View {
@@ -62,8 +58,8 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> c.exportarArchivoColumnas();
-                case "2" -> c.exportarArchivoHTML();
+                case "1" -> ViewAux.exportarArchivoColumnas();
+                case "2" -> ViewAux.exportarArchivoHTML();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -85,10 +81,10 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> c.agregarPelicula();
-                case "2" -> c.modificarPelicula();
-                case "3" -> c.eliminarPelicula();
-                case "4" -> c.consultarPelicula();
+                case "1" -> ViewAux.agregarPelicula();
+                case "2" -> ViewAux.modificarPelicula();
+                case "3" -> ViewAux.eliminarPelicula();
+                case "4" -> ViewAux.consultarPelicula();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -109,9 +105,9 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> c.agregarDirector();
-                case "2" -> c.modificarDirector();
-                case "3" -> c.eliminarDirector();
+                case "1" -> ViewAux.agregarDirector();
+                case "2" -> ViewAux.modificarDirector();
+                case "3" -> ViewAux.eliminarDirector();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -133,10 +129,10 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> c.agregarActor();
-                case "2" -> c.modificarActor();
-                case "3" -> c.eliminarActor();
-                case "4" -> c.consultarActor();
+                case "1" -> ViewAux.agregarActor();
+                case "2" -> ViewAux.modificarActor();
+                case "3" -> ViewAux.eliminarActor();
+                case "4" -> ViewAux.consultarActor();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -157,14 +153,16 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> c.listadoPeliculas();
-                case "2" -> c.listadoDirectores();
-                case "3" -> c.listadoActores();
+                case "1" -> ViewAux.listadoPeliculas();
+                case "2" -> ViewAux.listadoDirectores();
+                case "3" -> ViewAux.listadoActores();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
         } while (!salir);
     } // end menuListados
+
+
 
 
 } // end View
