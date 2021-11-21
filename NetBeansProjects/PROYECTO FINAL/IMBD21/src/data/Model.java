@@ -18,6 +18,8 @@ public class Model {
     List<Director> directores = new ArrayList<>();
     
 
+    // IMPORTACION DE DATOS
+
     public String importarArchivo(File f) {
         
         if (f.getName().startsWith("peliculas")) {
@@ -30,8 +32,6 @@ public class Model {
             return "%nERROR: fallo inesperado de lectura (MODEL)%n";
         }
     } // importarArchivo
-
-
 
     private String importarActores(File f) {
 
@@ -106,7 +106,10 @@ public class Model {
                 peliculas.add(Pelicula.factory(linea));
             }
             this.film.setPeliculas(peliculas);
-
+            
+            //if (peliculas.isEmpty()) {
+            //    return "%nERROR: VACIO%n";
+            //}
             return "";
         } else {
             // POR TERMINAR. ARCHIVO EN FORMATO BINARIO
@@ -114,5 +117,27 @@ public class Model {
         }
     } // importarPeliculas
     
+    // MENU PELICULAS 
     
+    public void agregarPelicula(String[] linea) {
+        this.film.addPelicula(Pelicula.factory(linea));
+    } // agregarPelicula
+    
+    public void modificarPelicula(String nombrePeli, int id) {
+        
+    } // modificarPelicula
+
+    public boolean verSiExistePelicula(String nombrePeli) {
+        
+        String titulo;
+        for (Pelicula peli : this.film.getPeliculas()) {
+            titulo = peli.getTitulo();
+            if (titulo.equalsIgnoreCase(nombrePeli)) {
+                
+                return true;
+            }
+        }
+        return false;
+    } // verSiExistePelicula
+
 } // end class Model
