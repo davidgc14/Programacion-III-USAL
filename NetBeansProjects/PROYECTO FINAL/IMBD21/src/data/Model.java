@@ -27,7 +27,7 @@ public class Model {
         } else if (f.getName().startsWith("actores")) {
             return importarActores(f);
         } else {
-            return "%nERROR: fallo inesperado de lectura.%n";
+            return "%nERROR: fallo inesperado de lectura (MODEL)%n";
         }
     } // importarArchivo
 
@@ -41,16 +41,18 @@ public class Model {
             try {
                 tmp = importFromDisk(f, "#");
             } catch (Exception ex) {
-                return "%nERROR: Archivo en formato no esperado%n";
+                return "%nERROR: Actor en formato no esperado%n";
             }
 
             for (String[] linea : tmp) {
                 if (linea.length != 5)  {
-                    return "%nERROR: Archivo en formato no esperado%n";
+                    return "%nERROR: Actor con lineas de longitud no esperada%n";
                 }
                 actores.add(Actor.factory(linea));
             }
             this.film.setActores(actores);
+
+            this.film.addPath(f.getPath());
 
             return "";
         } else {
@@ -69,12 +71,12 @@ public class Model {
             try {
                 tmp = importFromDisk(f, "#");
             } catch (Exception ex) {
-                return "%nERROR: Archivo en formato no esperado%n";
+                return "%nERROR: Director en formato no esperado%n";
             }
 
             for (String[] linea : tmp) {
                 if (linea.length != 5)  {
-                    return "%nERROR: Archivo en formato no esperado%n";
+                    return "%nERROR: Director con lineas de longitud no esperada%n";
                 }
                 directores.add(Director.factory(linea));
             }
@@ -95,12 +97,12 @@ public class Model {
             try {
                 tmp = importFromDisk(f, "#");
             } catch (Exception ex) {
-                return "%nERROR: Archivo en formato no esperado%n";
+                return "%nERROR: Peliculas en formato no esperado%n";
             }
 
             for (String[] linea : tmp) {
-                if (linea.length != 12)  {
-                    return "%nERROR: Archivo en formato no esperado%n";
+                if (linea.length != 11)  {
+                    return "%nERROR: Peliculas con lineas de longitud no esperada%n";
                 }
                 peliculas.add(Pelicula.factory(linea));
             }

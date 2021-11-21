@@ -67,7 +67,7 @@ public class View {
                 System.out.printf("%nNo se encontró el archivo de películas.%n");
                 salir = true;
             } else {
-                error_peliculas = this.c.importarArchivo(f_peliculas);
+                error_peliculas = c.importarArchivo(f_peliculas);
                 if (!error_peliculas.isEmpty()) {
                     System.out.printf(error_peliculas);
                     salir = true;
@@ -76,7 +76,7 @@ public class View {
 
             
         } else {
-            error_peliculas = this.c.importarArchivo(f_peliculas);
+            error_peliculas = c.importarArchivo(f_peliculas);
             if (!error_peliculas.isEmpty()) {
                 System.out.printf(error_peliculas);
                 salir = true;
@@ -91,14 +91,14 @@ public class View {
                 System.out.printf("%nNo se encontró el archivo de actores.%n");
                 salir = true;
             } else {
-                error_actores = this.c.importarArchivo(f_actores);
+                error_actores = c.importarArchivo(f_actores);
                 if (!error_actores.isEmpty()) {
                     System.out.printf(error_actores);
                     salir = true;
                 }
             }
         } else {
-            error_actores = this.c.importarArchivo(f_actores);
+            error_actores = c.importarArchivo(f_actores);
             if (!error_actores.isEmpty()) {
                 System.out.printf(error_actores);
                 salir = true;
@@ -113,14 +113,14 @@ public class View {
                 System.out.printf("%nNo se encontró el archivo de directores.%n");
                 salir = true;
             } else {
-                error_directores = this.c.importarArchivo(f_directores);
+                error_directores = c.importarArchivo(f_directores);
                 if (!error_directores.isEmpty()) {
                     System.out.printf(error_directores);
                     salir = true;
                 }
             }
         } else {
-            error_directores = this.c.importarArchivo(f_directores);
+            error_directores = c.importarArchivo(f_directores);
             if (!error_directores.isEmpty()) {
                 System.out.printf(error_directores);
                 salir = true;
