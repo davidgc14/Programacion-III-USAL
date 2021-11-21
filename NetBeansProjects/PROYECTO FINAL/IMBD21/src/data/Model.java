@@ -62,7 +62,6 @@ public class Model {
         
     } // importarActores
     
-
     private String importarDirectores(File f) {
         
         String[][] tmp;

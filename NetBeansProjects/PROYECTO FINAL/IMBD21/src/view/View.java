@@ -251,6 +251,4 @@ public class View {
     } // end menuListados
 
 
-
-
 } // end View
