@@ -62,7 +62,6 @@ public class View {
         if (!f_peliculas.exists()) {
             
             f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.txt");
-
             if (!f_peliculas.exists()) {
                 System.out.printf("%nNo se encontró el archivo de películas.%n");
                 salir = true;

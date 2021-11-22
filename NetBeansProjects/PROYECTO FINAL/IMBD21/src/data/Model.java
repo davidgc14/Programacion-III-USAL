@@ -3,19 +3,21 @@ package data;
 // import data.data_films.*;
 
 import java.io.File;
-import java.util.List;
-import java.util.ArrayList;
+// import java.util.List;
+// import java.util.ArrayList;
 
 import static com.coti.tools.OpMat.*;
 
 
 public class Model {
+    
+    private Filmoteca film = new Filmoteca();
 
-    Filmoteca film = new Filmoteca();
-
-    List<Pelicula> peliculas = new ArrayList<>();
-    List<Actor> actores = new ArrayList<>();
-    List<Director> directores = new ArrayList<>();
+    // unused
+    // private List<Pelicula> peliculas = new ArrayList<>();
+    // private List<Actor> actores = new ArrayList<>();
+    // private List<Director> directores = new ArrayList<>();
+    //private List<String> rutas = new ArrayList<>();
     
 
     // IMPORTACION DE DATOS
@@ -48,11 +50,8 @@ public class Model {
                 if (linea.length != 5)  {
                     return "%nERROR: Actor con lineas de longitud no esperada%n";
                 }
-                actores.add(Actor.factory(linea));
+                this.film.addActor(Actor.factory(linea));
             }
-            this.film.setActores(actores);
-
-            this.film.addPath(f.getPath());
 
             return "";
         } else {
@@ -77,9 +76,8 @@ public class Model {
                 if (linea.length != 5)  {
                     return "%nERROR: Director con lineas de longitud no esperada%n";
                 }
-                directores.add(Director.factory(linea));
+                this.film.addDirector(Director.factory(linea));
             }
-            this.film.setDirectores(directores);
 
             return "";
         } else {
@@ -98,22 +96,18 @@ public class Model {
             } catch (Exception ex) {
                 return "%nERROR: Peliculas en formato no esperado%n";
             }
-
+            
             for (String[] linea : tmp) {
                 if (linea.length != 11)  {
                     return "%nERROR: Peliculas con lineas de longitud no esperada%n";
                 }
-                peliculas.add(Pelicula.factory(linea));
+                this.film.addPelicula(Pelicula.factory(linea));
             }
-            this.film.setPeliculas(peliculas);
-            
-            //if (peliculas.isEmpty()) {
-            //    return "%nERROR: VACIO%n";
-            //}
+
             return "";
         } else {
             // POR TERMINAR. ARCHIVO EN FORMATO BINARIO
-            return "";
+            return "Está en binario";
         }
     } // importarPeliculas
     

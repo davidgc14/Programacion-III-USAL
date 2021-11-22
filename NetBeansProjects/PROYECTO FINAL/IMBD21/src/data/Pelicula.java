@@ -37,6 +37,14 @@ public class Pelicula {
         return pel;
     }
 
+    // CONVERSOR A STRING
+
+    public String[] toStringArray() {
+        String[] datos = {titulo, año, duracion, pais, String.join(",", direccion), guionista, musica, String.join(",", reparto), productora, sinopsis, genero};
+        return datos;
+    }
+
+
     // GETTERS & SETTERS  ---------------------------------------------------
 
     public String getTitulo() {

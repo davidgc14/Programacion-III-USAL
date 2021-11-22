@@ -5,14 +5,27 @@ import java.util.List;
 
 public class Filmoteca {
 
-    List<Pelicula> peliculas = new ArrayList<>();
-    List<Director> directores = new ArrayList<>();
-    List<Actor> actores = new ArrayList<>();
-    List<String> rutasArchivos = new ArrayList<>();
+    private List<Pelicula> peliculas;
+    private List<Director> directores;
+    private List<Actor> actores;
+    private List<String> rutasArchivos;
+
+    // Constructor
+    public Filmoteca() {
+        this.peliculas = new ArrayList<>();
+        this.directores = new ArrayList<>();
+        this.actores = new ArrayList<>();
+        this.rutasArchivos = new ArrayList<>();
+    }
+
+    public Filmoteca(List<Pelicula> peliculas, List<Director> directores, List<Actor> actores, List<String> rutasArchivos) {
+        this.peliculas = peliculas;
+        this.directores = directores;
+        this.actores = actores;
+        this.rutasArchivos = rutasArchivos;
+    }
 
 
-    //public Filmoteca() {
-    //}
 
     // SETTERS          
 

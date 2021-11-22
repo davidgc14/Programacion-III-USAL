@@ -82,6 +82,7 @@ public class ViewAux {
     } // fin modificarPelicula
 
     protected static void eliminarPelicula() {
+
         
     }
 
