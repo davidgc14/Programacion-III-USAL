@@ -3,20 +3,20 @@ package data;
 // import data.data_films.*;
 
 import java.io.File;
-import java.util.List;
-import java.util.ArrayList;
+// import java.util.List;
+// import java.util.ArrayList;
 
 import static com.coti.tools.OpMat.*;
 
 
 public class Model {
     
-    // private Filmoteca film = new Filmoteca();
+    private Filmoteca film = new Filmoteca();
 
     // unused
-    private List<Pelicula> peliculas;
-    private List<Actor> actores;
-    private List<Director> directores;
+    // private List<Pelicula> peliculas = new ArrayList<>();
+    // private List<Actor> actores = new ArrayList<>();
+    // private List<Director> directores = new ArrayList<>();
     // private List<String> rutas = new ArrayList<>();
     
 
@@ -37,7 +37,6 @@ public class Model {
 
     private String importarActores(File f) {
 
-        actores = new ArrayList<>();
         String[][] tmp;
 
         if (f.getName().endsWith(".txt")) {        
@@ -51,9 +50,7 @@ public class Model {
                 if (linea.length != 5)  {
                     return "%nERROR: Actor con lineas de longitud no esperada%n";
                 }
-                Actor act = Actor.factory(linea);
-                // this.film.addActor(Actor.factory(linea));
-                actores.add(act);
+                this.film.addActor(Actor.factory(linea));
             }
 
             return "";
@@ -66,7 +63,6 @@ public class Model {
     
     private String importarDirectores(File f) {
         
-        directores = new ArrayList<>();
         String[][] tmp;
 
         if (f.getName().endsWith(".txt")) {        
@@ -80,9 +76,7 @@ public class Model {
                 if (linea.length != 5)  {
                     return "%nERROR: Director con lineas de longitud no esperada%n";
                 }
-                Director dir = Director.factory(linea);
-                // this.film.addDirector(Director.factory(linea));
-                directores.add(dir);
+                this.film.addDirector(Director.factory(linea));
             }
 
             return "";
@@ -93,8 +87,7 @@ public class Model {
     } // importarDirectores
 
     private String importarPeliculas(File f) {
-        
-        peliculas = new ArrayList<>();
+            
         String[][] tmp;
 
         if (f.getName().endsWith(".txt")) {        
@@ -108,9 +101,7 @@ public class Model {
                 if (linea.length != 11)  {
                     return "%nERROR: Peliculas con lineas de longitud no esperada%n";
                 }
-                Pelicula pel = Pelicula.factory(linea);
-                // this.film.addPelicula(Pelicula.factory(linea));
-                this.peliculas.add(pel);
+                this.film.addPelicula(Pelicula.factory(linea));
             }
 
             return "";
@@ -125,7 +116,7 @@ public class Model {
     // MENU PELICULAS 
     
     public void agregarPelicula(String[] linea) {
-        peliculas.add(Pelicula.factory(linea));
+        this.film.addPelicula(Pelicula.factory(linea));
     } // agregarPelicula
     
     public void modificarPelicula(String nombrePeli, int id) {
@@ -135,7 +126,7 @@ public class Model {
     public boolean verSiExistePelicula(String nombrePeli) {
         
         String titulo;
-        for (Pelicula peli : this.peliculas) {
+        for (Pelicula peli : this.film.getPeliculas()) {
             titulo = peli.getTitulo();
             if (titulo.equalsIgnoreCase(nombrePeli)) {
                 

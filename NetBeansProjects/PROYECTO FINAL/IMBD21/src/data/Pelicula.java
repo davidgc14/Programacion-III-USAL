@@ -33,27 +33,8 @@ public class Pelicula {
     // FACTORY
 
     static Pelicula factory(String[] datos) {
-        if (datos.length != 11) {
-                return null;
-            }
-        
-        for (int i = 0; i < datos.length; i++) {
-            if (datos[i] == null) {
-                return null;
-            }
-        }
-        
-        return new Pelicula(datos[0], 
-                            datos[1], 
-                            datos[2], 
-                            datos[3], 
-                            datos[4].split(","), 
-                            datos[5], 
-                            datos[6], 
-                            datos[7].split(","), 
-                            datos[8], 
-                            datos[9], 
-                            datos[10]);
+        Pelicula pel = new Pelicula(datos[0], datos[1], datos[2], datos[3], datos[4].split(","), datos[5], datos[6], datos[7].split(","), datos[8], datos[9], datos[10]);
+        return pel;
     }
 
     // CONVERSOR A STRING
