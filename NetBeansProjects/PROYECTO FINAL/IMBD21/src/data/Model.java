@@ -3,8 +3,8 @@ package data;
 // import data.data_films.*;
 
 import java.io.File;
-// import java.util.List;
-// import java.util.ArrayList;
+import java.util.List;
+import java.util.ArrayList;
 
 import static com.coti.tools.OpMat.*;
 
@@ -14,9 +14,9 @@ public class Model {
     private Filmoteca film = new Filmoteca();
 
     // unused
-    // private List<Pelicula> peliculas = new ArrayList<>();
-    // private List<Actor> actores = new ArrayList<>();
-    // private List<Director> directores = new ArrayList<>();
+    private List<Pelicula> peliculas = new ArrayList<>();
+    private List<Actor> actores = new ArrayList<>();
+    private List<Director> directores = new ArrayList<>();
     // private List<String> rutas = new ArrayList<>();
     
 
