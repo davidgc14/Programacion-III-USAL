@@ -110,7 +110,7 @@ public class Model {
                 }
                 Pelicula pel = Pelicula.factory(linea);
                 // this.film.addPelicula(Pelicula.factory(linea));
-                peliculas.add(pel);
+                this.peliculas.add(pel);
             }
 
             return "";
@@ -135,7 +135,7 @@ public class Model {
     public boolean verSiExistePelicula(String nombrePeli) {
         
         String titulo;
-        for (Pelicula peli : peliculas) {
+        for (Pelicula peli : this.peliculas) {
             titulo = peli.getTitulo();
             if (titulo.equalsIgnoreCase(nombrePeli)) {
                 
