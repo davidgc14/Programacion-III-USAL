@@ -17,7 +17,7 @@ public class Model {
     // private List<Pelicula> peliculas = new ArrayList<>();
     // private List<Actor> actores = new ArrayList<>();
     // private List<Director> directores = new ArrayList<>();
-    //private List<String> rutas = new ArrayList<>();
+    // private List<String> rutas = new ArrayList<>();
     
 
     // IMPORTACION DE DATOS
@@ -110,6 +110,8 @@ public class Model {
             return "Está en binario";
         }
     } // importarPeliculas
+    
+
     
     // MENU PELICULAS 
     
