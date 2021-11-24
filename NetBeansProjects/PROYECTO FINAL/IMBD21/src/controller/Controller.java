@@ -35,4 +35,24 @@ public class Controller {
         return m.consultarPelicula(pelicula);
     }
 
+    // DIRECTORES ------------------------------------------------------------
+
+    public void agregarDirector(String[] datos) {
+        m.agregarDirector(datos);
+    }
+
+    public void modificarDirector(String director, int id, String nuevo) {
+        m.modificarDirector(director, id, nuevo);
+    }
+
+    public boolean verSiExisteDirector(String director) {
+        return m.verSiExisteDirector(director);
+    }
+
+    public void eliminarDirector(String director) {
+        m.eliminarDirector(director);
+    }
+
+    
+
 }

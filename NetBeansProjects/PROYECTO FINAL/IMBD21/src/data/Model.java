@@ -141,7 +141,10 @@ public class Model {
             case 9  -> peliculaEncontrada.setProductora(nuevo);
             case 10 -> peliculaEncontrada.setSinopsis(nuevo);
             case 11 -> peliculaEncontrada.setGenero(nuevo);
-            default -> System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
+            default -> {
+                System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
+                return;
+            }
         }
 
         System.out.printf("%nParametro de la pelicula modificado con exito%n%n");
@@ -176,7 +179,6 @@ public class Model {
         pelis.remove(peliculaEncontrada);
         System.out.printf("%nPelicula eliminada con exito%n%n");
     } // eliminarPelicula
-
     // mejorar!!!
     public String[][] consultarPelicula(String nombrePeli) {
         List<Pelicula> pelis = this.film.getPeliculas();
@@ -205,7 +207,63 @@ public class Model {
         return tmp;
     } // consultarPelicula
 
-    // MENU ACTORES -----------------------------------------------------------
+    // MENU DIRECTORES ---------------------------------------------------------
 
+    public void agregarDirector(String[] linea) {
+        this.film.addDirector(Director.factory(linea));
+    } // agregarDirector
+
+    public void modificarDirector(String nombreDir, int id, String nuevo) {
+        List<Director> directores = this.film.getDirectores();
+
+        Director directorEncontrado = null;
+        for (Director d : directores) {
+            if (d.getNombre().equals(nombreDir)) {
+                directorEncontrado = d;
+                break;
+            }
+        }
+
+        // +1 porque el id empieza en 0
+        switch (id + 1) { 
+            case 2  -> directorEncontrado.setFechaNacimiento(nuevo);
+            case 3  -> directorEncontrado.setNacionalidad(nuevo);
+            case 4  -> directorEncontrado.setOcupacion(nuevo);
+            default -> {
+                System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
+                return;
+            }
+        }
+
+        System.out.printf("%nParametro del director modificado con exito%n%n");
+    } // modificarDirector
+
+    public boolean verSiExisteDirector(String nombreDir) {
+        
+        String nombre;
+        for (Director dir : this.film.getDirectores()) {
+            nombre = dir.getNombre();
+            if (nombre.equalsIgnoreCase(nombreDir)) {
+                
+                return true;
+            }
+        }
+        return false;
+    } // verSiExisteDirector
+
+    public void eliminarDirector(String nombreDir) {
+        List<Director> directores = this.film.getDirectores();
+
+        Director directorEncontrado = null;
+        for (Director d : directores) {
+            if (d.getNombre().equals(nombreDir)) {
+                directorEncontrado = d;
+                break;
+            }
+        }
+
+        directores.remove(directorEncontrado);
+        System.out.printf("%nDirector eliminado con exito%n%n");
+    } // eliminarDirector
 
 } // end class Model
