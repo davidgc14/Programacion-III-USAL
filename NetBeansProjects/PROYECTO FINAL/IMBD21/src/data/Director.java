@@ -20,6 +20,9 @@ public class Director {
 
     // FACTORY
     static Director factory(String[] datos) {
+        if (datos.length != 5 || datos == null) {
+            return null;
+        }
         Director dir = new Director(datos[0], datos[1], datos[2], datos[3], datos[4].split(","));
         return dir;
     }

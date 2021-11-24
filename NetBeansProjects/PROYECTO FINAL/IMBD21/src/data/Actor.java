@@ -21,6 +21,9 @@ public class Actor {
 
     // FACTORY
     static Actor factory(String[] datos) {
+        if (datos.length != 5 || datos == null) {
+            return null;
+        }
         Actor act = new Actor(datos[0], datos[1], datos[2], datos[3], datos[4].split(","));
         return act;
     }

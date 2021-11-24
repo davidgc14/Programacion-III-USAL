@@ -40,12 +40,11 @@ public class Filmoteca {
     public void setActores(List<Actor> actores) {
         this.actores = actores;
     }
-
-    /*
+    
     public void setPath(String path) {
         this.rutasArchivos.add(path);
     }
-    */
+    
 
 
     // GETTERS

@@ -50,6 +50,7 @@ public class ViewAux {
         } catch (Exception ex) {
             System.out.printf("%n%nERROR DE ESCRITURA: no se ha podido guardar la pelicula correctamente%n%n");
         }
+        
 
     } // fin agregarPelicula
 
