@@ -5,6 +5,7 @@ package data;
 import java.io.File;
 // import java.util.List;
 // import java.util.ArrayList;
+import java.util.List;
 
 import static com.coti.tools.OpMat.*;
 
@@ -86,6 +87,9 @@ public class Model {
         }
     } // importarDirectores
 
+
+    //  
+
     private String importarPeliculas(File f) {
             
         String[][] tmp;
@@ -119,9 +123,35 @@ public class Model {
         this.film.addPelicula(Pelicula.factory(linea));
     } // agregarPelicula
     
-    public void modificarPelicula(String nombrePeli, int id) {
-        
+    public void modificarPelicula(String nombrePeli, int id, String nuevo) {
+        List<Pelicula> pelis = this.film.getPeliculas();
+
+        Pelicula peliculaEncontrada = null;
+        for (Pelicula p : pelis) {
+            if (p.getTitulo().equals(nombrePeli)) {
+                peliculaEncontrada = p;
+                break;
+            }
+        }
+
+        // +1 porque el id empieza en 0
+        switch (id + 1) { 
+            case 2  -> peliculaEncontrada.setAño(nuevo);
+            case 3  -> peliculaEncontrada.setDuracion(nuevo);
+            case 4  -> peliculaEncontrada.setPais(nuevo);
+            case 6  -> peliculaEncontrada.setGuionista(nuevo);
+            case 7  -> peliculaEncontrada.setMusica(nuevo);
+            case 9  -> peliculaEncontrada.setProductora(nuevo);
+            case 10 -> peliculaEncontrada.setSinopsis(nuevo);
+            case 11 -> peliculaEncontrada.setGenero(nuevo);
+            default -> System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
+        }
+
+        System.out.printf("%nParametro de la pelicula modificado con exito%n%n");
+
+           
     } // modificarPelicula
+
 
     public boolean verSiExistePelicula(String nombrePeli) {
         

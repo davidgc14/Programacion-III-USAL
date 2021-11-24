@@ -17,8 +17,8 @@ public class Controller {
         m.agregarPelicula(datos);
     }
 
-    public void modificarPelicula(String pelicula, int id) {
-        m.modificarPelicula(pelicula, id);
+    public void modificarPelicula(String pelicula, int id, String nuevo) {
+        m.modificarPelicula(pelicula, id, nuevo);
     }
 
     public boolean verSiExistePelicula(String pelicula) {

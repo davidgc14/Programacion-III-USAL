@@ -68,17 +68,31 @@ public class ViewAux {
 
             String[] pelicula ={"titulo", "año", "duracion", "pais", "direccion", "guionista", "musica", "reparto", "productora", "sinopsis", "genero"};
 
-            String parametro = readString("Indique el parámetro que desea modificar ").toLowerCase().trim();
+            String parametro = "";
+            boolean encontradoEnLista = false;
 
-            boolean encontradoEnLista = estaEnLista(pelicula, parametro);
+            while (!encontradoEnLista || parametro.equals("q")) {
+                parametro = readString("Indique el parámetro que desea modificar: ").toLowerCase().trim();
 
-            while (!encontradoEnLista) {
-                parametro = readString("Parametro no valido. Indique el parámetro que desea modificar ").toLowerCase().trim();
-                encontradoEnLista = estaEnLista(pelicula, parametro);
-            }
+                if (parametro.equals("titulo")) {
+                    System.out.printf("%n%nLo sentimos, el titulo no puede ser modificado%n%n");
+                } else if (parametro.equals("direccion")) {
+                    System.out.printf("%n%nLo sentimos, los directores no pueden ser modificados%n%n");
+                } else if (parametro.equals("reparto")) {
+                    System.out.printf("%n%nLo sentimos, los actores no pueden ser modificados%n%n");
+                } else if (parametro.equals("q")) {
+                    return;
+                } else if (estaEnLista(pelicula, parametro)) {
+                    encontradoEnLista = true;
+                } else {
+                    System.out.printf("%n%nERROR: no se ha encontrado el parámetro%n%n");
+                }
+            } // fin while
+
+            String nuevoValor = readString("Indique nuevo/a " + parametro + ": ");
 
             try {
-                c.modificarPelicula(nombrePelicula, getIndex(pelicula, parametro));
+                c.modificarPelicula(nombrePelicula, getIndex(pelicula, parametro), nuevoValor);
             } catch (Exception ex) {
                 System.out.printf("%n%nERROR: no se ha podido modificar la pelicula correctamente%n%n");
             }
