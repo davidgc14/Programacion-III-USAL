@@ -71,4 +71,8 @@ public class Controller {
         m.eliminarActor(actor);
     }
 
+    public String[][] consultarPeliculasActor(String actor) {
+        return m.peliculasActorOrdenadas(actor);
+    }
+
 }

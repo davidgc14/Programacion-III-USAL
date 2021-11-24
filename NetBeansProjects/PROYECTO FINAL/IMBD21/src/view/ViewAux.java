@@ -326,8 +326,27 @@ public class ViewAux {
     } // fin eliminarActor
 
     protected void consultarPeliculasActor() {
-        
-    }
+        String nombreActor = readString("Nombre del actor: ");
+
+        boolean encontrado = c.verSiExisteActor(nombreActor);
+
+        if (!encontrado) {
+            System.out.printf("%n%nERROR: no se ha encontrado el actor%n%n");
+        } else {
+            String[][] peliculasOrdenadas = c.consultarPeliculasActor(nombreActor);
+
+            if (peliculasOrdenadas == null) {
+                System.out.printf("%n%nERROR: no se ha encontrado ninguna pelicula%n%n");
+            } else {
+                try {
+                    System.out.printf("%n%nPeliculas del actor:%n%n");
+                    printToScreen3(peliculasOrdenadas);
+                } catch (Exception ex) {
+                    System.out.printf("%n%nERROR: no se ha podido mostrar las peliculas correctamente%n%n");
+                }
+            }
+        } // fin else
+    } // fin consultarPeliculasActor
 
 
     // OPCIONES DEL MENU LISTADOS ---------------------------------------------------

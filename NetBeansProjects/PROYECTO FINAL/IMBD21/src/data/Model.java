@@ -1,8 +1,10 @@
 package data;
 
+// pendiente de revisar la estructura del codigo para poder meter en subpaquete
 // import data.data_films.*;
 
 import java.io.File;
+import java.util.Comparator;
 // import java.util.List;
 // import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +15,6 @@ import static com.coti.tools.OpMat.*;
 public class Model {
     
     private Filmoteca film = new Filmoteca();
-
-    // unused
-    // private List<Pelicula> peliculas = new ArrayList<>();
-    // private List<Actor> actores = new ArrayList<>();
-    // private List<Director> directores = new ArrayList<>();
-    // private List<String> rutas = new ArrayList<>();
-    
 
     // IMPORTACION DE DATOS ---------------------------------------------------
 
@@ -207,6 +202,8 @@ public class Model {
         return tmp;
     } // consultarPelicula
 
+
+
     // MENU DIRECTORES ---------------------------------------------------------
 
     public void agregarDirector(String[] linea) {
@@ -265,6 +262,8 @@ public class Model {
         directores.remove(directorEncontrado);
         System.out.printf("%nDirector eliminado con exito%n%n");
     } // eliminarDirector
+
+
 
     // MENU ACTORES ---------------------------------------------------------
 
@@ -325,5 +324,25 @@ public class Model {
         System.out.printf("%nActor eliminado con exito%n%n");
     } // eliminarActor
 
+    public String[][] peliculasActorOrdenadas(Actor actor) {
+        List<Actor> listaActores = this.film.getActores();
 
+        Actor actorEncontrado = null;
+        for (Actor a : listaActores) {
+            if (a.getNombre().equals(actor.getNombre())) {
+                actorEncontrado = a;
+                break;
+            }
+        }
+
+        // aqui tengo ya la lista de peliculas del actor
+        String[] peliculasActor = actorEncontrado.getPeliculas();
+
+        // ahora necesito ordenarlas por año
+        peliculasActor.sort(Comparator.comparing(Pelicula::getAño));
+
+
+        String[][] tmp = new String[1][1];
+        return tmp;
+    }
 } // end class Model
