@@ -342,7 +342,7 @@ public class Model {
         for (int i = 0; i < peliculasActor.length; i++) {
             listaPeliculas.add(this.film.getPeliculaPorTitulo(peliculasActor[i]));
         }
-        
+
         // ahora necesito ordenarlas por año
         listaPeliculas.sort(Comparator.comparing(Pelicula::getAño));
     
@@ -364,4 +364,79 @@ public class Model {
 
         return tmp;
     }
+
+
+
+    // MENU LISTADOS ---------------------------------------------------------
+
+    public String[][] listarPeliculas() {
+        List<Pelicula> listaPeliculas = this.film.getPeliculas();
+
+        listaPeliculas.sort(Comparator.comparing(Pelicula::getTitulo));
+
+        String[][] tmp = new String[listaPeliculas.size() + 1][5];
+        
+        tmp[0][0] = "TITULO";
+        tmp[0][1] = "AÑO";
+        tmp[0][2] = "DURACION";
+        tmp[0][3] = "PAIS";
+        tmp[0][4] = "GENERO";
+
+        for (int i = 0; i < listaPeliculas.size(); i++) {
+            tmp[i+1][0] = listaPeliculas.get(i).getTitulo();
+            tmp[i+1][1] = listaPeliculas.get(i).getAño();
+            tmp[i+1][2] = listaPeliculas.get(i).getDuracion();
+            tmp[i+1][3] = listaPeliculas.get(i).getPais();
+            tmp[i+1][4] = listaPeliculas.get(i).getGenero();
+        }
+
+        return tmp;
+    } // listadoPeliculas
+
+    public String[][] listarDirectores() {
+        List<Director> listaDirectores = this.film.getDirectores();
+
+        listaDirectores.sort(Comparator.comparing(Director::getNacionalidad).thenComparing(Director::getFechaNacimiento));
+
+        String[][] tmp = new String[listaDirectores.size() + 1][4];
+        
+        tmp[0][0] = "NOMBRE";
+        tmp[0][1] = "FECHA NACIMIENTO";
+        tmp[0][2] = "NACIONALIDAD";
+        tmp[0][3] = "OCUPACION";
+
+        for (int i = 0; i < listaDirectores.size(); i++) {
+            tmp[i+1][0] = listaDirectores.get(i).getNombre();
+            tmp[i+1][1] = listaDirectores.get(i).getFechaNacimiento();
+            tmp[i+1][2] = listaDirectores.get(i).getNacionalidad();
+            tmp[i+1][3] = listaDirectores.get(i).getOcupacion();
+        }
+
+        return tmp;
+    } // listadoDirectores
+
+    public String[][] listarActores() {
+        List<Actor> listaActores = this.film.getActores();
+
+        listaActores.sort(Comparator.comparing(Actor::getDebut).thenComparing(Actor::getNombre));
+        // nombre, fechaNacimiento, nacionalidad, debut
+        
+        String[][] tmp = new String[listaActores.size() + 1][4];
+        
+        tmp[0][0] = "NOMBRE";
+        tmp[0][1] = "FECHA NACIMIENTO";
+        tmp[0][2] = "NACIONALIDAD";
+        tmp[0][3] = "DEBUT";
+
+        for (int i = 0; i < listaActores.size(); i++) {
+            tmp[i+1][0] = listaActores.get(i).getNombre();
+            tmp[i+1][1] = listaActores.get(i).getFechaNacimiento();
+            tmp[i+1][2] = listaActores.get(i).getNacionalidad();
+            tmp[i+1][3] = listaActores.get(i).getDebut();
+        }
+
+        return tmp;
+    } // listadoActores
+
+
 } // end class Model

@@ -75,4 +75,18 @@ public class Controller {
         return m.peliculasActorOrdenadas(actor);
     }
 
+    // LISTADOS ------------------------------------------------------------
+
+    public String[][] listarPeliculas() {
+        return m.listarPeliculas();
+    }
+
+    public String[][] listarDirectores() {
+        return m.listarDirectores();
+    }
+
+    public String[][] listarActores() {
+        return m.listarActores();
+    }
+
 }

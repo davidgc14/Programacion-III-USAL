@@ -352,16 +352,50 @@ public class ViewAux {
     // OPCIONES DEL MENU LISTADOS ---------------------------------------------------
 
     protected void listadoPeliculas() {
-        
-    }
+        System.out.printf("%n%nImprimiendo peliculas disponibles...%n%n");
+        String[][] peliculas = c.listarPeliculas();
+
+        if (peliculas == null) {
+            System.out.printf("%n%nERROR: no se ha encontrado ninguna pelicula%n%n");
+        } else {
+            try {
+                printToScreen3(peliculas);
+            } catch (Exception ex) {
+                System.out.printf("%n%nERROR: no se ha podido mostrar las peliculas correctamente%n%n");
+            }
+        }
+    } // fin listadoPeliculas
 
     protected void listadoDirectores() {
-        
-    }
+        System.out.printf("%n%nImprimiendo directores disponibles...%n%n");
+        String[][] directores = c.listarDirectores();
+
+        if (directores == null) {
+            System.out.printf("%n%nERROR: no se ha encontrado ningun director%n%n");
+        } else {
+            try {
+                printToScreen3(directores);
+            } catch (Exception ex) {
+                System.out.printf("%n%nERROR: no se ha podido mostrar los directores correctamente%n%n");
+            }
+        }
+    } // fin listadoDirectores
 
     protected void listadoActores() {
-        
-    }
+        System.out.printf("%n%nImprimiendo actores disponibles...%n%n");
+        String[][] actores = c.listarActores();
+
+        if (actores == null) {
+            System.out.printf("%n%nERROR: no se ha encontrado ningun actor%n%n");
+        } else {
+            try {
+                printToScreen3(actores);
+            } catch (Exception ex) {
+                System.out.printf("%n%nERROR: no se ha podido mostrar los actores correctamente%n%n");
+            }
+        }
+    } // fin listadoActores
+    
 
 
     // METODOS AUXILIARES ---------------------------------------------------
