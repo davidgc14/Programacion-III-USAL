@@ -2,6 +2,7 @@ package view;
 
 import static com.coti.tools.Esdia.*;
 import static com.coti.tools.DiaUtil.*;
+import static com.coti.tools.OpMat.*;
 
 import controller.Controller;
 
@@ -101,13 +102,48 @@ public class ViewAux {
     } // fin modificarPelicula
 
     protected void eliminarPelicula() {
+        String nombrePelicula = readString("Nombre de la pelicula a eliminar: ");
 
+        boolean encontrado = c.verSiExistePelicula(nombrePelicula);
+
+        if (!encontrado) {
+            System.out.printf("%n%nERROR: no se ha encontrado la pelicula%n%n");
+        } else {
+            String decision = readString("Seguro que quiere eliminar la pelicula " + nombrePelicula.toUpperCase() + "? (s/n): ").toLowerCase();
+
+            if (decision.equals("s")) {
+                System.out.printf("%n%nEliminando pelicula...%n");
+                try {
+                    c.eliminarPelicula(nombrePelicula);
+                } catch (Exception ex) {
+                    System.out.printf("%n%nERROR: no se ha podido eliminar la pelicula correctamente%n%n");
+                }
+            } else {
+                System.out.printf("%n%nPelicula no eliminada%n%n");
+            }
+        }
+    } // fin eliminarPelicula
         
-    }
-
     protected void consultarPelicula() {
-        
-    }
+        System.out.printf("%n");
+        String nombrePelicula = readString("Nombre de la pelicula a consultar: ");
+
+        boolean encontrado = c.verSiExistePelicula(nombrePelicula);
+
+        if (!encontrado) {
+            System.out.printf("%n%nERROR: no se ha encontrado la pelicula%n%n");
+        } else {
+            System.out.printf("%n%nPelicula encontrada%n%n");
+            System.out.printf("%n%n%n");
+            String[][] tmp = c.consultarPelicula(nombrePelicula);
+            try {
+                printToScreen3(tmp);
+            } catch (Exception ex) {
+                System.out.printf("%n%nERROR: no se ha podido consultar la pelicula correctamente%n%n");
+            }
+            System.out.printf("%n%n%n");
+        }
+    } // fin consultarPelicula
 
 
     // OPCIONES DEL MENU DIRECTORES ---------------------------------------------------

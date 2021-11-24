@@ -13,6 +13,8 @@ public class Controller {
         return m.importarArchivo(f);
     }
 
+    // PELICULAS ------------------------------------------------------------
+
     public void agregarPelicula(String[] datos) {
         m.agregarPelicula(datos);
     }
@@ -23,6 +25,14 @@ public class Controller {
 
     public boolean verSiExistePelicula(String pelicula) {
         return m.verSiExistePelicula(pelicula);
+    }
+
+    public void eliminarPelicula(String pelicula) {
+        m.eliminarPelicula(pelicula);
+    }
+
+    public String[][] consultarPelicula(String pelicula) {
+        return m.consultarPelicula(pelicula);
     }
 
 }

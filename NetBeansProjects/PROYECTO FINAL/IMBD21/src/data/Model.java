@@ -21,7 +21,7 @@ public class Model {
     // private List<String> rutas = new ArrayList<>();
     
 
-    // IMPORTACION DE DATOS
+    // IMPORTACION DE DATOS ---------------------------------------------------
 
     public String importarArchivo(File f) {
         
@@ -87,9 +87,6 @@ public class Model {
         }
     } // importarDirectores
 
-
-    //  
-
     private String importarPeliculas(File f) {
             
         String[][] tmp;
@@ -117,7 +114,7 @@ public class Model {
     
 
     
-    // MENU PELICULAS 
+    // MENU PELICULAS ---------------------------------------------------------
     
     public void agregarPelicula(String[] linea) {
         this.film.addPelicula(Pelicula.factory(linea));
@@ -152,7 +149,6 @@ public class Model {
            
     } // modificarPelicula
 
-
     public boolean verSiExistePelicula(String nombrePeli) {
         
         String titulo;
@@ -165,5 +161,51 @@ public class Model {
         }
         return false;
     } // verSiExistePelicula
+
+    public void eliminarPelicula(String nombrePeli) {
+        List<Pelicula> pelis = this.film.getPeliculas();
+
+        Pelicula peliculaEncontrada = null;
+        for (Pelicula p : pelis) {
+            if (p.getTitulo().equals(nombrePeli)) {
+                peliculaEncontrada = p;
+                break;
+            }
+        }
+
+        pelis.remove(peliculaEncontrada);
+        System.out.printf("%nPelicula eliminada con exito%n%n");
+    } // eliminarPelicula
+
+    // mejorar!!!
+    public String[][] consultarPelicula(String nombrePeli) {
+        List<Pelicula> pelis = this.film.getPeliculas();
+
+        Pelicula peliculaEncontrada = null;
+        for (Pelicula p : pelis) {
+            if (p.getTitulo().equals(nombrePeli)) {
+                peliculaEncontrada = p;
+                break;
+            }
+        }
+        // titulo, año, duracion, pais,[] direccion, guionista, musica,[] reparto, productora, sinopsis, genero;
+        String[][] tmp = new String[11][1];
+        tmp[0][0]  = peliculaEncontrada.getTitulo();
+        tmp[1][0]  = peliculaEncontrada.getAño();
+        tmp[2][0]  = peliculaEncontrada.getDuracion();
+        tmp[3][0]  = peliculaEncontrada.getPais();
+        tmp[4]     = peliculaEncontrada.getDireccion();
+        tmp[5][0]  = peliculaEncontrada.getGuionista();
+        tmp[6][0]  = peliculaEncontrada.getMusica();
+        tmp[7]     = peliculaEncontrada.getReparto();
+        tmp[8][0]  = peliculaEncontrada.getProductora();
+        tmp[9][0]  = peliculaEncontrada.getSinopsis();
+        tmp[10][0] = peliculaEncontrada.getGenero();
+
+        return tmp;
+    } // consultarPelicula
+
+    // MENU ACTORES -----------------------------------------------------------
+
 
 } // end class Model
