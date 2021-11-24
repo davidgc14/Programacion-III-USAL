@@ -6,23 +6,27 @@ import static com.coti.tools.DiaUtil.*;
 import controller.Controller;
 
 public class ViewAux {
+    
+    Controller c;
 
-    static Controller c = new Controller();
+    public ViewAux(Controller c_viejo) {
+        this.c = c_viejo;
+    }
     
     // OPCIONES DEL ARCHIVO ---------------------------------------------------
 
-    protected static void exportarArchivoColumnas() {
+    protected void exportarArchivoColumnas() {
         
     }
 
-    protected static void exportarArchivoHTML() {
+    protected void exportarArchivoHTML() {
         
     }
 
 
     // OPCIONES DEL MENU PELICULAS ---------------------------------------------------  
 
-    protected static void agregarPelicula() {
+    protected void agregarPelicula() {
         String[] nuevaPelicula = new String[11];
         // titulo, año, duracion, pais,[] direccion, guionista, musica,[] reparto, productora, sinopsis, genero;
 
@@ -49,7 +53,7 @@ public class ViewAux {
 
     } // fin agregarPelicula
 
-    protected static void modificarPelicula() {
+    protected void modificarPelicula() {
         
         underline2("Modificar Pelicula");
         // titulo, año, duracion, pais,[] direccion, guionista, musica,[] reparto, productora, sinopsis, genero;
@@ -81,68 +85,68 @@ public class ViewAux {
         } // fin else
     } // fin modificarPelicula
 
-    protected static void eliminarPelicula() {
+    protected void eliminarPelicula() {
 
         
     }
 
-    protected static void consultarPelicula() {
+    protected void consultarPelicula() {
         
     }
 
 
     // OPCIONES DEL MENU DIRECTORES ---------------------------------------------------
 
-    protected static void agregarDirector() {
+    protected void agregarDirector() {
         
     }
 
-    protected static void modificarDirector() {
+    protected void modificarDirector() {
         
     }
 
-    protected static void eliminarDirector() {
+    protected void eliminarDirector() {
         
     }
 
 
     // OPCIONES DEL MENU ACTORES ---------------------------------------------------
 
-    protected static void agregarActor() {
+    protected void agregarActor() {
         
     }
 
-    protected static void modificarActor() {
+    protected void modificarActor() {
         
     }
 
-    protected static void eliminarActor() {
+    protected void eliminarActor() {
         
     }
 
-    protected static void consultarActor() {
+    protected void consultarActor() {
         
     }
 
 
     // OPCIONES DEL MENU LISTADOS ---------------------------------------------------
 
-    protected static void listadoPeliculas() {
+    protected void listadoPeliculas() {
         
     }
 
-    protected static void listadoDirectores() {
+    protected void listadoDirectores() {
         
     }
 
-    protected static void listadoActores() {
+    protected void listadoActores() {
         
     }
 
 
     // METODOS AUXILIARES ---------------------------------------------------
 
-    private static boolean estaEnLista(String[] lista, String nombre) {
+    private boolean estaEnLista(String[] lista, String nombre) {
         boolean encontrado = false;
         int i = 0;
         while (i < lista.length && !encontrado) {
@@ -155,7 +159,7 @@ public class ViewAux {
         return encontrado;
     }
 
-    private static int getIndex(String[] lista, String nombre) {
+    private int getIndex(String[] lista, String nombre) {
         int i = 0;
         
         while (i < lista.length) {

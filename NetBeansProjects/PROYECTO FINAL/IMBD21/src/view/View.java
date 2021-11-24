@@ -133,6 +133,8 @@ public class View {
 
     // METODOS DEL RUNMENU  ---------------------------------------------------
 
+    ViewAux vaux = new ViewAux(c);
+    
     private void menuArchivos() {
 
         String option;
@@ -145,8 +147,8 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> ViewAux.exportarArchivoColumnas();
-                case "2" -> ViewAux.exportarArchivoHTML();
+                case "1" -> vaux.exportarArchivoColumnas();
+                case "2" -> vaux.exportarArchivoHTML();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -168,10 +170,10 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> ViewAux.agregarPelicula();
-                case "2" -> ViewAux.modificarPelicula();
-                case "3" -> ViewAux.eliminarPelicula();
-                case "4" -> ViewAux.consultarPelicula();
+                case "1" -> vaux.agregarPelicula();
+                case "2" -> vaux.modificarPelicula();
+                case "3" -> vaux.eliminarPelicula();
+                case "4" -> vaux.consultarPelicula();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -192,9 +194,9 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> ViewAux.agregarDirector();
-                case "2" -> ViewAux.modificarDirector();
-                case "3" -> ViewAux.eliminarDirector();
+                case "1" -> vaux.agregarDirector();
+                case "2" -> vaux.modificarDirector();
+                case "3" -> vaux.eliminarDirector();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -216,10 +218,10 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> ViewAux.agregarActor();
-                case "2" -> ViewAux.modificarActor();
-                case "3" -> ViewAux.eliminarActor();
-                case "4" -> ViewAux.consultarActor();
+                case "1" -> vaux.agregarActor();
+                case "2" -> vaux.modificarActor();
+                case "3" -> vaux.eliminarActor();
+                case "4" -> vaux.consultarActor();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
@@ -240,9 +242,9 @@ public class View {
                             + "%n%n       >       ");
 
             switch (option.toLowerCase()) {
-                case "1" -> ViewAux.listadoPeliculas();
-                case "2" -> ViewAux.listadoDirectores();
-                case "3" -> ViewAux.listadoActores();
+                case "1" -> vaux.listadoPeliculas();
+                case "2" -> vaux.listadoDirectores();
+                case "3" -> vaux.listadoActores();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }
