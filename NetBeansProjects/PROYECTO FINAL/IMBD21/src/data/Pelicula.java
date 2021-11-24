@@ -16,7 +16,7 @@ public class Pelicula {
 
     // CONSTRUCTOR
     
-    public Pelicula(String titulo, String año, String duracion, String pais, String[] direccion, String guionista, String musica, String[] reparto, String productora, String sinopsis, String genero) {
+    public Pelicula(String titulo, String año, String duracion, String pais, String[] direccion, String guionista, String musica, String[] reparto, String productora, String genero, String sinopsis) {
         this.titulo = titulo;
         this.año = año;
         this.duracion = duracion;
@@ -26,8 +26,8 @@ public class Pelicula {
         this.musica = musica;
         this.reparto = reparto;
         this.productora = productora;
-        this.sinopsis = sinopsis;
         this.genero = genero;
+        this.sinopsis = sinopsis;
     }
 
     // FACTORY
@@ -36,14 +36,14 @@ public class Pelicula {
         if (datos == null || datos.length != 11) {
             return null;
         }
-        Pelicula pel = new Pelicula(datos[0], datos[1], datos[2], datos[3], datos[4].split(","), datos[5], datos[6], datos[7].split(","), datos[8], datos[9], datos[10]);
+        Pelicula pel = new Pelicula(datos[0], datos[1], datos[2], datos[3], datos[4].split("\t"), datos[5], datos[6], datos[7].split("\t"), datos[8], datos[9], datos[10]);
         return pel;
     }
 
     // CONVERSOR A STRING
 
     public String[] toStringArray() {
-        String[] datos = {titulo, año, duracion, pais, String.join(",", direccion), guionista, musica, String.join(",", reparto), productora, sinopsis, genero};
+        String[] datos = {titulo, año, duracion, pais, String.join("\t", direccion), guionista, musica, String.join("\t", reparto), productora, genero, sinopsis};
         return datos;
     }
 

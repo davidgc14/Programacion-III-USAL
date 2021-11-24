@@ -221,7 +221,7 @@ public class View {
                 case "1" -> vaux.agregarActor();
                 case "2" -> vaux.modificarActor();
                 case "3" -> vaux.eliminarActor();
-                case "4" -> vaux.consultarActor();
+                case "4" -> vaux.consultarPeliculasActor();
                 case "q" -> salir = true;
                 default  -> System.out.println("Opcion no valida");
             }

@@ -23,7 +23,7 @@ public class Director {
         if (datos.length != 5 || datos == null) {
             return null;
         }
-        Director dir = new Director(datos[0], datos[1], datos[2], datos[3], datos[4].split(","));
+        Director dir = new Director(datos[0], datos[1], datos[2], datos[3], datos[4].split("\t"));
         return dir;
     }
 

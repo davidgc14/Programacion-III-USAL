@@ -65,6 +65,33 @@ public class Filmoteca {
         return rutasArchivos.get(0);
     }
 
+    public Pelicula getPeliculaPorTitulo(String titulo) {
+        for (Pelicula p : peliculas) {
+            if (p.getTitulo().equalsIgnoreCase(titulo)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Director getDirectorPorNombre(String nombre) {
+        for (Director d : directores) {
+            if (d.getNombre().equalsIgnoreCase(nombre)) {
+                return d;
+            }
+        }
+        return null;
+    }
+
+    public Actor getActorPorNombre(String nombre) {
+        for (Actor a : actores) {
+            if (a.getNombre().equalsIgnoreCase(nombre)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
 
     // METODOS
 

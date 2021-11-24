@@ -5,9 +5,8 @@ package data;
 
 import java.io.File;
 import java.util.Comparator;
-// import java.util.List;
-// import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import static com.coti.tools.OpMat.*;
 
@@ -324,12 +323,12 @@ public class Model {
         System.out.printf("%nActor eliminado con exito%n%n");
     } // eliminarActor
 
-    public String[][] peliculasActorOrdenadas(Actor actor) {
+    public String[][] peliculasActorOrdenadas(String nombreActor) {
         List<Actor> listaActores = this.film.getActores();
 
         Actor actorEncontrado = null;
         for (Actor a : listaActores) {
-            if (a.getNombre().equals(actor.getNombre())) {
+            if (a.getNombre().equalsIgnoreCase(nombreActor)) {
                 actorEncontrado = a;
                 break;
             }
@@ -338,11 +337,34 @@ public class Model {
         // aqui tengo ya la lista de peliculas del actor
         String[] peliculasActor = actorEncontrado.getPeliculas();
 
+        List<Pelicula> listaPeliculas = new ArrayList<>();
+
+        for (int i = 0; i < peliculasActor.length; i++) {
+            listaPeliculas.add(this.film.getPeliculaPorTitulo(peliculasActor[i]));
+        }
+
+
+
+        
         // ahora necesito ordenarlas por año
-        peliculasActor.sort(Comparator.comparing(Pelicula::getAño));
+        listaPeliculas.sort(Comparator.comparing(Pelicula::getAño));
+    
+        String[][] tmp = new String[listaPeliculas.size() + 1][5];
+        
+        tmp[0][0] = "TITULO";
+        tmp[0][1] = "AÑO";
+        tmp[0][2] = "DURACION";
+        tmp[0][3] = "PAIS";
+        tmp[0][4] = "GENERO";
 
+        for (int i = 0; i < listaPeliculas.size(); i++) {
+            tmp[i+1][0] = listaPeliculas.get(i).getTitulo();
+            tmp[i+1][1] = listaPeliculas.get(i).getAño();
+            tmp[i+1][2] = listaPeliculas.get(i).getDuracion();
+            tmp[i+1][3] = listaPeliculas.get(i).getPais();
+            tmp[i+1][4] = listaPeliculas.get(i).getGenero();
+        }
 
-        String[][] tmp = new String[1][1];
         return tmp;
     }
 } // end class Model
