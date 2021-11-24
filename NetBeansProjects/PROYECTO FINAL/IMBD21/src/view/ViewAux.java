@@ -209,8 +209,8 @@ public class ViewAux {
             } catch (Exception ex) {
                 System.out.printf("%n%nERROR: no se ha podido modificar el director correctamente%n%n");
             }
-        } //
-    }
+        } // fin else
+    } // fin modificarDirector
 
     protected void eliminarDirector() {
         String nombreDirector = readString("Nombre del director a eliminar: ");
@@ -239,18 +239,93 @@ public class ViewAux {
     // OPCIONES DEL MENU ACTORES ---------------------------------------------------
 
     protected void agregarActor() {
-        
-    }
+        String[] nuevoActor = new String[5];
+        // nombre, fechaNacimiento, nacionalidad, debut, [] peliculas;
+
+        clear();
+        underline2("Agregar Actor");
+
+        nuevoActor[0] = readString("Nombre              : ");
+        nuevoActor[1] = readString("Fecha de nacimiento : ");
+        nuevoActor[2] = readString("Nacionalidad        : ");
+        nuevoActor[3] = readString("Debut               : ");
+        nuevoActor[4] = readString("Peliculas           : ");
+
+        try {
+            c.agregarActor(nuevoActor);
+        } catch (Exception ex) {
+            System.out.printf("%n%nERROR DE ESCRITURA: no se ha podido guardar el actor correctamente%n%n");
+        }
+    } // fin agregarActor
 
     protected void modificarActor() {
-        
-    }
+        clear();
+        underline2("Modificar Actor");
+        // nombre, fechaNacimiento, nacionalidad, debut, [] peliculas;
+
+        String nombreActor = readString("Nombre del actor a modificar: ");
+
+        boolean encontrado = c.verSiExisteActor(nombreActor);
+
+        if (!encontrado) {
+            System.out.printf("%n%nERROR: no se ha encontrado el actor%n%n");
+        } else {
+
+            String[] actor ={"nombre", "fechaNacimiento", "nacionalidad", "debut", "peliculas"};
+
+            String parametro = "";
+            boolean encontradoEnLista = false;
+
+            while (!encontradoEnLista || parametro.equals("q")) {
+                parametro = readString("Indique el parámetro que desea modificar: ").toLowerCase().trim();
+
+                if (parametro.equals("peliculas")) {
+                    System.out.printf("%n%nLo sentimos, las peliculas no pueden ser modificadas%n%n");
+                } else if (parametro.equals("nombre")) {
+                    System.out.printf("%n%nLo sentimos, el nombre no puede ser modificado%n%n");
+                } else if (parametro.equals("q")) {
+                    return;
+                } else if (estaEnLista(actor, parametro)) {
+                    encontradoEnLista = true;
+                } else {
+                    System.out.printf("%n%nERROR: no se ha encontrado el parámetro%n%n");
+                }
+            } // fin while
+
+            String nuevoValor = readString("Indique nuevo/a " + parametro + ": ");
+
+            try {
+                c.modificarActor(nombreActor, getIndex(actor, parametro), nuevoValor);
+            } catch (Exception ex) {
+                System.out.printf("%n%nERROR: no se ha podido modificar el actor correctamente%n%n");
+            } // fin try
+        } // fin else
+    } // fin modificarActor
 
     protected void eliminarActor() {
-        
-    }
+        String nombreActor = readString("Nombre del actor a eliminar: ");
 
-    protected void consultarActor() {
+        boolean encontrado = c.verSiExisteActor(nombreActor);
+
+        if (!encontrado) {
+            System.out.printf("%n%nERROR: no se ha encontrado el actor%n%n");
+        } else {
+            String decision = readString("Seguro que quiere eliminar el actor " + nombreActor.toUpperCase() + "? (s/n): ").toLowerCase();
+
+            if (decision.equals("s")) {
+                System.out.printf("%n%nEliminando actor...%n");
+                try {
+                    c.eliminarActor(nombreActor);
+                } catch (Exception ex) {
+                    System.out.printf("%n%nERROR: no se ha podido eliminar el actor correctamente%n%n");
+                }
+            } else {
+                System.out.printf("%n%nActor no eliminado%n%n");
+            }
+        }
+    } // fin eliminarActor
+
+    protected void consultarPeliculasActor() {
         
     }
 

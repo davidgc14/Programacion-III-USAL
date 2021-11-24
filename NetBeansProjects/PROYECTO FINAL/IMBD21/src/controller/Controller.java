@@ -53,6 +53,22 @@ public class Controller {
         m.eliminarDirector(director);
     }
 
-    
+    // ACTORES ------------------------------------------------------------
+
+    public void agregarActor(String[] datos) {
+        m.agregarActor(datos);
+    }
+
+    public void modificarActor(String actor, int id, String nuevo) {
+        m.modificarActor(actor, id, nuevo);
+    }
+
+    public boolean verSiExisteActor(String actor) {
+        return m.verSiExisteActor(actor);
+    }
+
+    public void eliminarActor(String actor) {
+        m.eliminarActor(actor);
+    }
 
 }

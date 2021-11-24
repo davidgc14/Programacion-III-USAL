@@ -266,4 +266,64 @@ public class Model {
         System.out.printf("%nDirector eliminado con exito%n%n");
     } // eliminarDirector
 
+    // MENU ACTORES ---------------------------------------------------------
+
+    public void agregarActor(String[] linea) {
+        this.film.addActor(Actor.factory(linea));
+    } // agregarActor
+
+    public void modificarActor(String nombreAct, int id, String nuevo) {
+        List<Actor> actores = this.film.getActores();
+
+        Actor actorEncontrado = null;
+        for (Actor a : actores) {
+            if (a.getNombre().equals(nombreAct)) {
+                actorEncontrado = a;
+                break;
+            }
+        }
+
+        // +1 porque el id empieza en 0
+        switch (id + 1) { 
+            case 2  -> actorEncontrado.setFechaNacimiento(nuevo);
+            case 3  -> actorEncontrado.setNacionalidad(nuevo);
+            case 4  -> actorEncontrado.setDebut(nuevo);
+            default -> {
+                System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
+                return;
+            }
+        }
+
+        System.out.printf("%nParametro del actor modificado con exito%n%n");
+    } // modificarActor
+
+    public boolean verSiExisteActor(String nombreAct) {
+        
+        String nombre;
+        for (Actor act : this.film.getActores()) {
+            nombre = act.getNombre();
+            if (nombre.equalsIgnoreCase(nombreAct)) {
+                
+                return true;
+            }
+        }
+        return false;
+    } // verSiExisteActor
+
+    public void eliminarActor(String nombreAct) {
+        List<Actor> actores = this.film.getActores();
+
+        Actor actorEncontrado = null;
+        for (Actor a : actores) {
+            if (a.getNombre().equals(nombreAct)) {
+                actorEncontrado = a;
+                break;
+            }
+        }
+
+        actores.remove(actorEncontrado);
+        System.out.printf("%nActor eliminado con exito%n%n");
+    } // eliminarActor
+
+
 } // end class Model
