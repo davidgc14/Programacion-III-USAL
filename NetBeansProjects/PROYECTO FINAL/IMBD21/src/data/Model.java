@@ -342,9 +342,6 @@ public class Model {
         for (int i = 0; i < peliculasActor.length; i++) {
             listaPeliculas.add(this.film.getPeliculaPorTitulo(peliculasActor[i]));
         }
-
-
-
         
         // ahora necesito ordenarlas por año
         listaPeliculas.sort(Comparator.comparing(Pelicula::getAño));
