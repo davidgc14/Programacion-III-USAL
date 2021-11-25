@@ -49,6 +49,12 @@ public class View {
     private boolean inicioPrograma() {
         boolean salir = false;
 
+        // importamos las rutas del path
+        if (c.importarPathArchivos() != "") {
+            System.out.printf(c.importarPathArchivos());
+            salir = true;
+        }
+
         System.out.printf("Importando archivos...%n%n");
         File f_peliculas, f_actores, f_directores;
         
@@ -123,15 +129,6 @@ public class View {
             error_directores = c.importarArchivo(f_directores);
             if (!error_directores.isEmpty()) {
                 System.out.printf(error_directores);
-                salir = true;
-            }
-        }
-        
-
-        // Nos falta importar los path de los archivos .bin
-        if (!salir) {
-            if (c.importarPathArchivos() != "") {
-                System.out.printf(c.importarPathArchivos());
                 salir = true;
             }
         }

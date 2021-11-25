@@ -34,6 +34,47 @@ public class Model {
         }
     } // importarArchivo
 
+
+    private String importarPeliculas(File f) {
+            
+        String[][] tmp;
+
+        if (f.getName().endsWith(".txt")) {        
+            try {
+                tmp = importFromDisk(f, "#");
+            } catch (Exception ex) {
+                return "%nERROR: Peliculas en formato no esperado%n";
+            }
+            
+            for (String[] linea : tmp) {
+                if (linea.length != 11)  {
+                    return "%nERROR: Peliculas con lineas de longitud no esperada%n";
+                }
+                this.film.addPelicula(Pelicula.factory(linea));
+            }
+
+            return "";
+        } else if (f.getName().endsWith(".bin")) {
+                Path path = this.film.getPathPorNombre("peliculas");
+                if (path == null) {
+                    return "%nERROR: No se encontró el archivo de películas.bin%n";
+                } else {
+                    try {
+                        FileInputStream fis = new FileInputStream(path.toFile());
+                        BufferedInputStream bis = new BufferedInputStream(fis);
+                        ObjectInputStream ois = new ObjectInputStream(bis);
+                        this.film.setPeliculas((List<Pelicula>) ois.readObject());
+                        ois.close();
+                    } catch (Exception ex) {
+                        return "%nERROR: Peliculas en formato no esperado (BINARIO)%n";
+                    }
+                }
+            return "";
+        } else {
+            return "%nERROR: peliculas en formato no reconocido";
+        }
+    } // importarPeliculas
+    
     private String importarActores(File f) {
 
         String[][] tmp;
@@ -84,31 +125,6 @@ public class Model {
             return "";
         }
     } // importarDirectores
-
-    private String importarPeliculas(File f) {
-            
-        String[][] tmp;
-
-        if (f.getName().endsWith(".txt")) {        
-            try {
-                tmp = importFromDisk(f, "#");
-            } catch (Exception ex) {
-                return "%nERROR: Peliculas en formato no esperado%n";
-            }
-            
-            for (String[] linea : tmp) {
-                if (linea.length != 11)  {
-                    return "%nERROR: Peliculas con lineas de longitud no esperada%n";
-                }
-                this.film.addPelicula(Pelicula.factory(linea));
-            }
-
-            return "";
-        } else {
-            // POR TERMINAR. ARCHIVO EN FORMATO BINARIO
-            return "Está en binario";
-        }
-    } // importarPeliculas
     
 
     public String importarPathArchivos() {
