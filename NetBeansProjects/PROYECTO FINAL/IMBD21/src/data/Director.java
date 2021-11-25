@@ -1,6 +1,8 @@
 package data;
 
-public class Director {
+import java.io.Serializable;
+
+public class Director implements Serializable {
     
     private String nombre;
     private String fechaNacimiento;

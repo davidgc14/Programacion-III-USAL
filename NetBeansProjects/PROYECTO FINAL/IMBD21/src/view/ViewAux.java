@@ -4,6 +4,10 @@ import static com.coti.tools.Esdia.*;
 import static com.coti.tools.DiaUtil.*;
 import static com.coti.tools.OpMat.*;
 
+import com.coti.tools.Rutas;
+import java.io.File;
+import java.io.PrintWriter;
+
 import controller.Controller;
 
 public class ViewAux {
@@ -18,11 +22,30 @@ public class ViewAux {
 
     protected void exportarArchivoColumnas() {
         
-    }
+    } // exportarArchivoColumnas
 
     protected void exportarArchivoHTML() {
-        
-    }
+        File f = Rutas.fileToFileOnDesktop("peliculas.html");
+
+        try {
+            PrintWriter pw = new PrintWriter(f);
+            pw.printf("<!DOCTYPE html>%n"
+                    + "<HTML>%n"
+                    + "<HEAD>$n"
+                    + "<meta charset=\"UTF-8\">$n"
+                    + "<H1></H1>%n"
+                    + "</HEAD>%n"
+                    + "<BODY>");
+            
+            pw.printf("<TABLE BORDER=1>%n");
+            pw.printf("</TABLE>%n</BODY>%n</HTML>%n");
+            pw.close();
+            
+        } catch (Exception ex) {
+            System.out.printf("%nERROR: no se pudo exportar el archivo HTML.%n");
+        }
+ 
+    } // exportarArchivoHTML
 
 
     // OPCIONES DEL MENU PELICULAS ---------------------------------------------------  

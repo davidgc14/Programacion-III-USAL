@@ -1,11 +1,15 @@
 package data;
 
+
 // pendiente de revisar la estructura del codigo para poder meter en subpaquete
 // import data.data_films.*;
-
-import java.io.File;
+import java.io.*;
+import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
+
+import com.coti.tools.Rutas;
+
 import java.util.ArrayList;
 
 import static com.coti.tools.OpMat.*;
@@ -106,6 +110,68 @@ public class Model {
         }
     } // importarPeliculas
     
+
+    public String importarPathArchivos() {
+        String[] lista = {"peliculas", "directores", "actores"};
+        try {
+            for (String s : lista) {
+                this.film.addPath(Rutas.pathToFileInFolderOnDesktop("IMBD21", s + ".bin"));
+            }
+        } catch (Exception ex) {
+            return "%nERROR: Problema al cargar el archivo%n";
+        }
+        
+        return "";
+    } // importarPathArchivo
+
+
+    // EXPORTACION DE DATOS ---------------------------------------------------
+
+    public void exportarDatos() {
+        exportarPeliculas(this.film.getPathPorNombre("peliculas"));
+        exportarDirectores(this.film.getPathPorNombre("directores"));
+        exportarActores(this.film.getPathPorNombre("actores"));
+    } // exportarDatos
+
+    private void exportarPeliculas(Path path) {
+        
+        try {
+            FileOutputStream fos = new FileOutputStream(path.toFile());
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(this.film.getPeliculas());
+            oos.close();
+        } catch (Exception ex) {
+            System.out.printf("%nERROR: fallo inesperado de exportacion de peliculas a binario (MODEL)%n");
+            System.out.println(ex);
+        }
+    } // exportarPeliculas
+
+    private void exportarDirectores(Path path) {
+        
+        try {
+            FileOutputStream fos = new FileOutputStream(path.toFile());
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(this.film.getDirectores());
+            oos.close();
+        } catch (Exception ex) {
+            System.out.printf("%nERROR: fallo inesperado de exportacion de directores a binario (MODEL)%n");
+        }
+    } // exportarDirectores
+
+    private void exportarActores(Path path) {
+        
+        try {
+            FileOutputStream fos = new FileOutputStream(path.toFile());
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(this.film.getActores());
+            oos.close();
+        } catch (Exception ex) {
+            System.out.printf("%nERROR: fallo inesperado de exportacion de actores a binario (MODEL)%n");
+        }
+    } // exportarActores
 
     
     // MENU PELICULAS ---------------------------------------------------------

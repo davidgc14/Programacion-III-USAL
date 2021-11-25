@@ -34,10 +34,11 @@ public class View {
                 case "3" -> this.menuDirectores();
                 case "4" -> this.menuActores();
                 case "5" -> this.menuListados();
-                case "q" -> salir = true;
+                case "q" -> {this.cierrePrograma(); salir = true;}
                 default  -> System.out.printf("%nOpción incorrecta%n");
             }
         } // end while
+        
     } // RUN MENU
 
 
@@ -127,6 +128,13 @@ public class View {
         }
         
 
+        // Nos falta importar los path de los archivos .bin
+        if (!salir) {
+            if (c.importarPathArchivos() != "") {
+                System.out.printf(c.importarPathArchivos());
+                salir = true;
+            }
+        }
 
         return salir;
     }
@@ -141,8 +149,8 @@ public class View {
         boolean salir = false;
 
         do {
-            option = readString("%n1.- Exportar por columnas"
-                            + "%n2.- Exportar formato html"
+            option = readString("%n1.- Exportar lista de directores por columnas"
+                            + "%n2.- Exportar peliculas en formato html"
                             + "%nq.- Salir del menu ARCHIVOS"
                             + "%n%n       >       ");
 
@@ -251,5 +259,14 @@ public class View {
         } while (!salir);
     } // end menuListados
 
+    private void cierrePrograma() {
+        System.out.printf("%n%nGracias por usar el programa.%n%n");
+        try {
+            c.exportarDatos();
+        } catch (Exception ex) {
+            System.out.printf("%nERROR: no se han podido guardar los datos en binario. Se perderán todas las modificaciones.%n");
+        }
+        
+    } // end cierrePrograma
 
 } // end View

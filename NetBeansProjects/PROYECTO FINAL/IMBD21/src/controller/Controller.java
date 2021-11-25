@@ -13,6 +13,14 @@ public class Controller {
         return m.importarArchivo(f);
     }
 
+    public String importarPathArchivos() {
+        return m.importarPathArchivos();
+    }
+
+    public void exportarDatos() {
+        m.exportarDatos();
+    }
+
     // PELICULAS ------------------------------------------------------------
 
     public void agregarPelicula(String[] datos) {

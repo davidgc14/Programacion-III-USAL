@@ -1,14 +1,16 @@
 package data;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Filmoteca {
 
     private List<Pelicula> peliculas;
     private List<Director> directores;
     private List<Actor> actores;
-    private List<String> rutasArchivos;
+    private List<Path> rutasArchivos;
 
     // Constructor
     public Filmoteca() {
@@ -18,7 +20,7 @@ public class Filmoteca {
         this.rutasArchivos = new ArrayList<>();
     }
 
-    public Filmoteca(List<Pelicula> peliculas, List<Director> directores, List<Actor> actores, List<String> rutasArchivos) {
+    public Filmoteca(List<Pelicula> peliculas, List<Director> directores, List<Actor> actores, List<Path> rutasArchivos) {
         this.peliculas = peliculas;
         this.directores = directores;
         this.actores = actores;
@@ -41,7 +43,7 @@ public class Filmoteca {
         this.actores = actores;
     }
     
-    public void setPath(String path) {
+    public void setPath(Path path) {
         this.rutasArchivos.add(path);
     }
     
@@ -61,8 +63,8 @@ public class Filmoteca {
         return actores;
     }
 
-    public String getPath() {
-        return rutasArchivos.get(0);
+    public List<Path> getPath() {
+        return rutasArchivos;
     }
 
     public Pelicula getPeliculaPorTitulo(String titulo) {
@@ -92,6 +94,15 @@ public class Filmoteca {
         return null;
     }
 
+    public Path getPathPorNombre(String nombre) {
+        for (Path p : rutasArchivos) {
+            if (p.getFileName().toString().startsWith(nombre)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 
     // METODOS
 
@@ -107,7 +118,7 @@ public class Filmoteca {
         this.actores.add(actor);
     }
 
-    public void addPath(String path) {
+    public void addPath(Path path) {
         this.rutasArchivos.add(path);
     }
 
