@@ -52,7 +52,7 @@ public class View {
         // importamos las rutas del path
         if (c.importarPathArchivos() != "") {
             System.out.printf(c.importarPathArchivos());
-            salir = true;
+            // salir = true;
         }
 
         System.out.printf("Importando archivos...%n%n");

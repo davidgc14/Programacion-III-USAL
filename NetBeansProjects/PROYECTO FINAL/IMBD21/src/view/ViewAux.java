@@ -66,8 +66,8 @@ public class ViewAux {
         nuevaPelicula[6]  = readString("Musica     : ");
         nuevaPelicula[7]  = readString("Reparto    : ");
         nuevaPelicula[8]  = readString("Productora : ");
-        nuevaPelicula[9]  = readString("Sinopsis   : ");
-        nuevaPelicula[10] = readString("Genero     : ");
+        nuevaPelicula[9]  = readString("Genero     : ");
+        nuevaPelicula[10] = readString("Sinopsis   : ");
         
         try {
             c.agregarPelicula(nuevaPelicula);

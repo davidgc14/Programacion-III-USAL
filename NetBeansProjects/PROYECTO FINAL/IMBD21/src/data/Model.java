@@ -83,22 +83,36 @@ public class Model {
             try {
                 tmp = importFromDisk(f, "#");
             } catch (Exception ex) {
-                return "%nERROR: Actor en formato no esperado%n";
+                return "%nERROR: Actores en formato no esperado%n";
             }
-
+            
             for (String[] linea : tmp) {
                 if (linea.length != 5)  {
-                    return "%nERROR: Actor con lineas de longitud no esperada%n";
+                    return "%nERROR: Actores con lineas de longitud no esperada%n";
                 }
                 this.film.addActor(Actor.factory(linea));
             }
 
             return "";
-        } else {
-            // POR TERMINAR. ARCHIVO EN FORMATO BINARIO
+        } else if (f.getName().endsWith(".bin")) {
+                Path path = this.film.getPathPorNombre("actores");
+                if (path == null) {
+                    return "%nERROR: No se encontró el archivo de actores.bin%n";
+                } else {
+                    try {
+                        FileInputStream fis = new FileInputStream(path.toFile());
+                        BufferedInputStream bis = new BufferedInputStream(fis);
+                        ObjectInputStream ois = new ObjectInputStream(bis);
+                        this.film.setActores((List<Actor>) ois.readObject());
+                        ois.close();
+                    } catch (Exception ex) {
+                        return "%nERROR: Actores en formato no esperado (BINARIO)%n";
+                    }
+                }
             return "";
-        }
-        
+        } else {
+            return "%nERROR: actores en formato no reconocido";
+        }        
     } // importarActores
     
     private String importarDirectores(File f) {
@@ -109,20 +123,35 @@ public class Model {
             try {
                 tmp = importFromDisk(f, "#");
             } catch (Exception ex) {
-                return "%nERROR: Director en formato no esperado%n";
+                return "%nERROR: Directores en formato no esperado%n";
             }
-
+            
             for (String[] linea : tmp) {
                 if (linea.length != 5)  {
-                    return "%nERROR: Director con lineas de longitud no esperada%n";
+                    return "%nERROR: Directores con lineas de longitud no esperada%n";
                 }
                 this.film.addDirector(Director.factory(linea));
             }
 
             return "";
-        } else {
-            // POR TERMINAR. ARCHIVO EN FORMATO BINARIO
+        } else if (f.getName().endsWith(".bin")) {
+                Path path = this.film.getPathPorNombre("directores");
+                if (path == null) {
+                    return "%nERROR: No se encontró el archivo de directores.bin%n";
+                } else {
+                    try {
+                        FileInputStream fis = new FileInputStream(path.toFile());
+                        BufferedInputStream bis = new BufferedInputStream(fis);
+                        ObjectInputStream ois = new ObjectInputStream(bis);
+                        this.film.setDirectores((List<Director>) ois.readObject());
+                        ois.close();
+                    } catch (Exception ex) {
+                        return "%nERROR: Directores en formato no esperado (BINARIO)%n";
+                    }
+                }
             return "";
+        } else {
+            return "%nERROR: directores en formato no reconocido";
         }
     } // importarDirectores
     
@@ -134,7 +163,7 @@ public class Model {
                 this.film.addPath(Rutas.pathToFileInFolderOnDesktop("IMBD21", s + ".bin"));
             }
         } catch (Exception ex) {
-            return "%nERROR: Problema al cargar el archivo%n";
+            return "%nERROR: Problema al cargar el archivo binario%n";
         }
         
         return "";
