@@ -34,16 +34,16 @@ public class ViewAux {
 
         clear();
         underline2("Agregar Pelicula");
-        nuevaPelicula[0] = readString("Titulo     : ");
-        nuevaPelicula[1] = readString("Año        : ");
-        nuevaPelicula[2] = readString("Duracion   : ");
-        nuevaPelicula[3] = readString("Pais       : ");
-        nuevaPelicula[4] = readString("Direccion  : ");
-        nuevaPelicula[5] = readString("Guionista  : ");
-        nuevaPelicula[6] = readString("Musica     : ");
-        nuevaPelicula[7] = readString("Reparto    : ");
-        nuevaPelicula[8] = readString("Productora : ");
-        nuevaPelicula[9] = readString("Sinopsis   : ");
+        nuevaPelicula[0]  = readString("Titulo     : ");
+        nuevaPelicula[1]  = readString("Año        : ");
+        nuevaPelicula[2]  = readString("Duracion   : ");
+        nuevaPelicula[3]  = readString("Pais       : ");
+        nuevaPelicula[4]  = readString("Direccion  : ");
+        nuevaPelicula[5]  = readString("Guionista  : ");
+        nuevaPelicula[6]  = readString("Musica     : ");
+        nuevaPelicula[7]  = readString("Reparto    : ");
+        nuevaPelicula[8]  = readString("Productora : ");
+        nuevaPelicula[9]  = readString("Sinopsis   : ");
         nuevaPelicula[10] = readString("Genero     : ");
         
         try {
@@ -73,7 +73,7 @@ public class ViewAux {
             String parametro = "";
             boolean encontradoEnLista = false;
 
-            while (!encontradoEnLista || parametro.equals("q")) {
+            while (!encontradoEnLista) {
                 parametro = readString("Indique el parámetro que desea modificar: ").toLowerCase().trim();
 
                 if (parametro.equals("titulo")) {
@@ -186,7 +186,7 @@ public class ViewAux {
             String parametro = "";
             boolean encontradoEnLista = false;
 
-            while (!encontradoEnLista || parametro.equals("q")) {
+            while (!encontradoEnLista) {
                 parametro = readString("Indique el parámetro que desea modificar: ").toLowerCase().trim();
 
                 if (parametro.equals("peliculas")) {
@@ -276,7 +276,7 @@ public class ViewAux {
             String parametro = "";
             boolean encontradoEnLista = false;
 
-            while (!encontradoEnLista || parametro.equals("q")) {
+            while (!encontradoEnLista) {
                 parametro = readString("Indique el parámetro que desea modificar: ").toLowerCase().trim();
 
                 if (parametro.equals("peliculas")) {
