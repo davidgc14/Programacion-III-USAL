@@ -29,6 +29,13 @@ public class Director implements Serializable {
         return dir;
     }
 
+    // CONVERSOR A STRING PARA EXPORTAR
+
+    public String toStringForExport() {
+        String datos = nombre + "#" + fechaNacimiento + "#" + nacionalidad + "#" + ocupacion + "#" + peliculas;
+        return datos;
+    }
+
     // GETTERS & SETTERS  ---------------------------------------------------
 
     public String getNombre() {

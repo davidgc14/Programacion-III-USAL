@@ -4,7 +4,10 @@ package data;
 // pendiente de revisar la estructura del codigo para poder meter en subpaquete
 // import data.data_films.*;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.Comparator;
 import java.util.List;
 
@@ -33,7 +36,6 @@ public class Model {
             return "%nERROR: fallo inesperado de lectura (MODEL)%n";
         }
     } // importarArchivo
-
 
     private String importarPeliculas(File f) {
             
@@ -168,6 +170,24 @@ public class Model {
         
         return "";
     } // importarPathArchivo
+
+
+    public void exportarCOL() {
+        File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", "Archivo_Exportado.col");
+
+        List<String> tmp = new ArrayList<>();
+
+        for (Director d : this.film.getDirectores()) {
+            tmp.add(d.toStringForExport());
+        }
+
+        try {
+            Files.write(f.toPath(), tmp, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+        } catch (Exception ex) {
+            System.out.println("%nERROR: Problema al exportar el archivo COL%n");
+        }
+    }
+
 
 
     // EXPORTACION DE DATOS ---------------------------------------------------

@@ -21,7 +21,13 @@ public class ViewAux {
     // OPCIONES DEL ARCHIVO ---------------------------------------------------
 
     protected void exportarArchivoColumnas() {
-        
+        System.out.printf("%n%nExportando directores a archivo COL...%n%n");
+        try {
+            c.exportarCOL();
+            System.out.printf("%n%nExportación de directores a archivo COL realizada con éxito%n%n");
+        } catch (Exception ex) {
+            System.out.printf("%n%nERROR: %s%n%n", ex.getMessage());
+        }
     } // exportarArchivoColumnas
 
     protected void exportarArchivoHTML() {

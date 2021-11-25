@@ -9,6 +9,7 @@ public class Controller {
     Model m = new Model();
 
 
+    // IMPORTACION Y EXPORTACION DE DATOS --------------------------------------------------
     public String importarArchivo( File f) {
         return m.importarArchivo(f);
     }
@@ -19,6 +20,10 @@ public class Controller {
 
     public void exportarDatos() {
         m.exportarDatos();
+    }
+
+    public void exportarCOL() {
+        m.exportarCOL();
     }
 
     // PELICULAS ------------------------------------------------------------
