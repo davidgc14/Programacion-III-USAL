@@ -4,10 +4,6 @@ import static com.coti.tools.Esdia.*;
 import static com.coti.tools.DiaUtil.*;
 import static com.coti.tools.OpMat.*;
 
-import com.coti.tools.Rutas;
-import java.io.File;
-import java.io.PrintWriter;
-
 import controller.Controller;
 
 public class ViewAux {
