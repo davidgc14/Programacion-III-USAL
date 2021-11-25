@@ -26,6 +26,10 @@ public class Controller {
         m.exportarCOL();
     }
 
+    public void exportarHTML() {
+        m.exportarHTML();
+    }
+
     // PELICULAS ------------------------------------------------------------
 
     public void agregarPelicula(String[] datos) {

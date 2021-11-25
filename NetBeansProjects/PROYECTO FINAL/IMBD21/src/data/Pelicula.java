@@ -140,4 +140,68 @@ public class Pelicula implements Serializable {
         this.genero = genero;
     }
 
+    // EXPORTAR ARCHIVO HTML -------------------------------------------------
+
+
+    public static String encabezado() {
+        String resultado;
+        resultado = String.format(
+                "<tr>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "</tr>",
+                "Título",
+                "Año",
+                "Duración",
+                "País",
+                "Dirección",
+                "Guionista",
+                "Música",
+                "Reparto",
+                "Productora",
+                "Género",
+                "Sinopsis");
+        return resultado;
+    } 
+
+    public String filaDeHTML() {
+        String resultado;
+        resultado = String.format(
+                "<tr>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "<th>%s</th>"
+                + "</tr>",
+                this.titulo,
+                this.año,
+                this.duracion,
+                this.pais,
+                String.join("<br>", this.direccion),
+                this.guionista,
+                this.musica,
+                String.join("<br>", this.reparto),
+                this.productora,
+                this.genero,
+                this.sinopsis);
+
+        return resultado;
+    } 
+
 } // end class Pelicula

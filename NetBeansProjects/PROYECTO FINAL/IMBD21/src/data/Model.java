@@ -172,23 +172,6 @@ public class Model {
     } // importarPathArchivo
 
 
-    public void exportarCOL() {
-        File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", "Archivo_Exportado.col");
-
-        List<String> tmp = new ArrayList<>();
-
-        for (Director d : this.film.getDirectores()) {
-            tmp.add(d.toStringForExport());
-        }
-
-        try {
-            Files.write(f.toPath(), tmp, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
-        } catch (Exception ex) {
-            System.out.println("%nERROR: Problema al exportar el archivo COL%n");
-        }
-    }
-
-
 
     // EXPORTACION DE DATOS ---------------------------------------------------
 
@@ -238,7 +221,55 @@ public class Model {
         }
     } // exportarActores
 
-    
+
+
+    // EXPORTACION DE ARCHIVOS ------------------------------------------------
+
+    public void exportarCOL() {
+        File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", "Directores_Exportado.col");
+
+        List<String> tmp = new ArrayList<>();
+
+        for (Director d : this.film.getDirectores()) {
+            tmp.add(d.toStringForExport());
+        }
+
+        try {
+            Files.write(f.toPath(), tmp, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+        } catch (Exception ex) {
+            System.out.println("%nERROR: Problema al exportar el archivo COL%n");
+        }
+    }
+
+    public void exportarHTML() {
+        File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", "Peliculas_Exportado.html");
+
+        try {
+            PrintWriter pw = new PrintWriter(f);
+            pw.printf("<!DOCTYPE html>%n"
+                    + "<HTML>%n"
+                    + "<HEAD>%n"
+                    + "<meta charset=\"UTF-8\">%n"
+                    + "<TITLE>Peliculas</TITLE>%n"
+                    // + "<H1>Listado de Películas</H1>"
+                    + "</HEAD>%n"
+                    + "<BODY>%n");
+            pw.printf("<TABLE BORDER=1>%n");
+            pw.printf("%s%n", Pelicula.encabezado());
+
+            for (Pelicula p : this.film.getPeliculas()) {
+                pw.printf("%s%n", p.filaDeHTML());
+            }
+
+            pw.printf("</TABLE>%n</BODY>%n</HTML>%n");
+            pw.close(); 
+
+        } catch (Exception ex) {
+            System.out.println("%nERROR: Problema al exportar el archivo HTML%n");
+        }
+    }
+
+
     // MENU PELICULAS ---------------------------------------------------------
     
     public void agregarPelicula(String[] linea) {

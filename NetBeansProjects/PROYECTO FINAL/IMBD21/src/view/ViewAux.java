@@ -31,24 +31,12 @@ public class ViewAux {
     } // exportarArchivoColumnas
 
     protected void exportarArchivoHTML() {
-        File f = Rutas.fileToFileOnDesktop("peliculas.html");
-
+        System.out.printf("%n%nExportando peliculas a archivo HTML...%n%n");
         try {
-            PrintWriter pw = new PrintWriter(f);
-            pw.printf("<!DOCTYPE html>%n"
-                    + "<HTML>%n"
-                    + "<HEAD>$n"
-                    + "<meta charset=\"UTF-8\">$n"
-                    + "<H1></H1>%n"
-                    + "</HEAD>%n"
-                    + "<BODY>");
-            
-            pw.printf("<TABLE BORDER=1>%n");
-            pw.printf("</TABLE>%n</BODY>%n</HTML>%n");
-            pw.close();
-            
+            c.exportarHTML();
+            System.out.printf("%n%nExportación de peliculas a archivo HTML realizada con éxito%n%n");
         } catch (Exception ex) {
-            System.out.printf("%nERROR: no se pudo exportar el archivo HTML.%n");
+            System.out.printf("%n%nERROR: %s%n%n", ex.getMessage());
         }
  
     } // exportarArchivoHTML
