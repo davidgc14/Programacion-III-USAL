@@ -32,7 +32,11 @@ public class Director implements Serializable {
     // CONVERSOR A STRING PARA EXPORTAR
 
     public String toStringForExport() {
-        String datos = nombre + "#" + fechaNacimiento + "#" + nacionalidad + "#" + ocupacion + "#" + peliculas;
+        String peliculasString = "";
+        for (String s : peliculas) {
+            peliculasString.concat(s + "\t");
+        }
+        String datos = nombre + "#" + fechaNacimiento + "#" + nacionalidad + "#" + ocupacion + "#" + peliculasString.trim();
         return datos;
     }
 
