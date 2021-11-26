@@ -277,11 +277,10 @@ public class Model {
     } // agregarPelicula
     
     public void modificarPelicula(String nombrePeli, int id, String nuevo) {
-        List<Pelicula> pelis = this.film.getPeliculas();
 
         Pelicula peliculaEncontrada = null;
-        for (Pelicula p : pelis) {
-            if (p.getTitulo().equals(nombrePeli)) {
+        for (Pelicula p : this.film.getPeliculas()) {
+            if (p.getTitulo().equalsIgnoreCase(nombrePeli)) {
                 peliculaEncontrada = p;
                 break;
             }
@@ -326,7 +325,7 @@ public class Model {
 
         Pelicula peliculaEncontrada = null;
         for (Pelicula p : pelis) {
-            if (p.getTitulo().equals(nombrePeli)) {
+            if (p.getTitulo().equalsIgnoreCase(nombrePeli)) {
                 peliculaEncontrada = p;
                 break;
             }
@@ -341,7 +340,7 @@ public class Model {
 
         Pelicula peliculaEncontrada = null;
         for (Pelicula p : pelis) {
-            if (p.getTitulo().equals(nombrePeli)) {
+            if (p.getTitulo().equalsIgnoreCase(nombrePeli)) {
                 peliculaEncontrada = p;
                 break;
             }
@@ -376,7 +375,7 @@ public class Model {
 
         Director directorEncontrado = null;
         for (Director d : directores) {
-            if (d.getNombre().equals(nombreDir)) {
+            if (d.getNombre().equalsIgnoreCase(nombreDir)) {
                 directorEncontrado = d;
                 break;
             }
@@ -414,7 +413,7 @@ public class Model {
 
         Director directorEncontrado = null;
         for (Director d : directores) {
-            if (d.getNombre().equals(nombreDir)) {
+            if (d.getNombre().equalsIgnoreCase(nombreDir)) {
                 directorEncontrado = d;
                 break;
             }
@@ -437,7 +436,7 @@ public class Model {
 
         Actor actorEncontrado = null;
         for (Actor a : actores) {
-            if (a.getNombre().equals(nombreAct)) {
+            if (a.getNombre().equalsIgnoreCase(nombreAct)) {
                 actorEncontrado = a;
                 break;
             }
@@ -475,7 +474,7 @@ public class Model {
 
         Actor actorEncontrado = null;
         for (Actor a : actores) {
-            if (a.getNombre().equals(nombreAct)) {
+            if (a.getNombre().equalsIgnoreCase(nombreAct)) {
                 actorEncontrado = a;
                 break;
             }
