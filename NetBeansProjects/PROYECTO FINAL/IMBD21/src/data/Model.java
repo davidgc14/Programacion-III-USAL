@@ -1,8 +1,5 @@
 package data;
 
-
-// pendiente de revisar la estructura del codigo para poder meter en subpaquete
-// import data.data_films.*;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -68,7 +65,7 @@ public class Model {
                         this.film.setPeliculas((List<Pelicula>) ois.readObject());
                         ois.close();
                     } catch (Exception ex) {
-                        return "%nERROR: Peliculas en formato no esperado (BINARIO)%n";
+                        return "%nERROR: error de lectura (peliculas) del archivo binario%n";
                     }
                 }
             return "";
@@ -108,7 +105,7 @@ public class Model {
                         this.film.setActores((List<Actor>) ois.readObject());
                         ois.close();
                     } catch (Exception ex) {
-                        return "%nERROR: Actores en formato no esperado (BINARIO)%n";
+                        return "%nERROR: error de lectura (actores) del archivo binario%n";
                     }
                 }
             return "";
@@ -148,7 +145,7 @@ public class Model {
                         this.film.setDirectores((List<Director>) ois.readObject());
                         ois.close();
                     } catch (Exception ex) {
-                        return "%nERROR: Directores en formato no esperado (BINARIO)%n";
+                        return "%nERROR: error de lectura (directores) del archivo binario%n";
                     }
                 }
             return "";
@@ -286,16 +283,20 @@ public class Model {
             }
         }
 
+        if (peliculaEncontrada == null) {
+            System.out.println("ERROR: fallo inesperado en la busqueda de la pelicula (MODEL)");
+            return;
+        }
         // +1 porque el id empieza en 0
-        switch (id + 1) { 
-            case 2  -> peliculaEncontrada.setAño(nuevo);
-            case 3  -> peliculaEncontrada.setDuracion(nuevo);
-            case 4  -> peliculaEncontrada.setPais(nuevo);
-            case 6  -> peliculaEncontrada.setGuionista(nuevo);
-            case 7  -> peliculaEncontrada.setMusica(nuevo);
-            case 9  -> peliculaEncontrada.setProductora(nuevo);
-            case 10 -> peliculaEncontrada.setSinopsis(nuevo);
-            case 11 -> peliculaEncontrada.setGenero(nuevo);
+        switch (id) { 
+            case 1  -> peliculaEncontrada.setAño(nuevo);
+            case 2  -> peliculaEncontrada.setDuracion(nuevo);
+            case 3  -> peliculaEncontrada.setPais(nuevo);
+            case 5  -> peliculaEncontrada.setGuionista(nuevo);
+            case 6  -> peliculaEncontrada.setMusica(nuevo);
+            case 8  -> peliculaEncontrada.setProductora(nuevo);
+            case 9 -> peliculaEncontrada.setSinopsis(nuevo);
+            case 10 -> peliculaEncontrada.setGenero(nuevo);
             default -> {
                 System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
                 return;
@@ -345,6 +346,11 @@ public class Model {
                 break;
             }
         }
+        
+        if (peliculaEncontrada == null) {
+            System.out.println("ERROR: fallo inesperado en la busqueda de la pelicula (MODEL)");
+            return null;
+        }
         // titulo, año, duracion, pais,[] direccion, guionista, musica,[] reparto, productora, sinopsis, genero;
         String[][] tmp = new String[11][1];
         tmp[0][0]  = peliculaEncontrada.getTitulo();
@@ -380,12 +386,17 @@ public class Model {
                 break;
             }
         }
+        
+        if (directorEncontrado == null) {
+            System.out.println("ERROR: fallo inesperado en la busqueda del director (MODEL)");
+            return;
+        }
 
         // +1 porque el id empieza en 0
-        switch (id + 1) { 
-            case 2  -> directorEncontrado.setFechaNacimiento(nuevo);
-            case 3  -> directorEncontrado.setNacionalidad(nuevo);
-            case 4  -> directorEncontrado.setOcupacion(nuevo);
+        switch (id) { 
+            case 1  -> directorEncontrado.setFechaNacimiento(nuevo);
+            case 2  -> directorEncontrado.setNacionalidad(nuevo);
+            case 3  -> directorEncontrado.setOcupacion(nuevo);
             default -> {
                 System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
                 return;
@@ -441,12 +452,17 @@ public class Model {
                 break;
             }
         }
+        
+        if (actorEncontrado == null) {
+            System.out.println("ERROR: fallo inesperado en la busqueda del actor (MODEL)");
+            return;
+        }
 
         // +1 porque el id empieza en 0
-        switch (id + 1) { 
-            case 2  -> actorEncontrado.setFechaNacimiento(nuevo);
-            case 3  -> actorEncontrado.setNacionalidad(nuevo);
-            case 4  -> actorEncontrado.setDebut(nuevo);
+        switch (id) { 
+            case 1  -> actorEncontrado.setFechaNacimiento(nuevo);
+            case 2  -> actorEncontrado.setNacionalidad(nuevo);
+            case 3  -> actorEncontrado.setDebut(nuevo);
             default -> {
                 System.out.println("ERROR: No se ha podido acceder al parametro encontrado. Es posible que no se pueda modificar");
                 return;
@@ -494,19 +510,24 @@ public class Model {
                 break;
             }
         }
+        
+        if (actorEncontrado == null) {
+            System.out.println("ERROR: fallo inesperado en la busqueda del actor (MODEL)");
+            return null;
+        }
 
         // aqui tengo ya la lista de peliculas del actor
         String[] peliculasActor = actorEncontrado.getPeliculas();
 
         List<Pelicula> listaPeliculas = new ArrayList<>();
 
-        for (int i = 0; i < peliculasActor.length; i++) {
-            if (this.film.getPeliculaPorTitulo(peliculasActor[i]) == null){
+        for (String peliAct : peliculasActor) {
+            if (this.film.getPeliculaPorTitulo(peliAct) == null) {
                 Pelicula pel = new Pelicula();
-                pel.setTitulo(peliculasActor[i]);
+                pel.setTitulo(peliAct);
                 listaPeliculas.add(pel);
             } else {
-                listaPeliculas.add(this.film.getPeliculaPorTitulo(peliculasActor[i]));
+                listaPeliculas.add(this.film.getPeliculaPorTitulo(peliAct));
             }
         }
 

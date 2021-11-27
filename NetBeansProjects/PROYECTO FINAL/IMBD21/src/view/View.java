@@ -50,7 +50,7 @@ public class View {
         boolean salir = false;
 
         // importamos las rutas del path
-        if (c.importarPathArchivos() != "") {
+        if (c.importarPathArchivos().equals("")) {
             System.out.printf(c.importarPathArchivos());
             // salir = true;
         }

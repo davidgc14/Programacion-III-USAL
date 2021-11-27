@@ -26,7 +26,11 @@ public class Actor implements Serializable {
         if (datos.length != 5 || datos == null) {
             return null;
         }
-        Actor act = new Actor(datos[0], datos[1], datos[2], datos[3], datos[4].split("\t"));
+        Actor act = new Actor(datos[0], 
+                datos[1], 
+                datos[2], 
+                datos[3], 
+                datos[4].split("\t"));
         return act;
     }
 
@@ -71,12 +75,5 @@ public class Actor implements Serializable {
     public void setPeliculas(String[] peliculas) {
         this.peliculas = peliculas;
     }
-
-    /*
-    @Override
-    public String toString() {
-        return "Actor{" + "nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", nacionalidad=" + nacionalidad + ", debut=" + debut + ", peliculas=" + peliculas + '}';
-    }
-    */
 
 } // end class Actor

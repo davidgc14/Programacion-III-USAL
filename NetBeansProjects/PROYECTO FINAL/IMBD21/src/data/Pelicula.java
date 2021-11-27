@@ -52,14 +52,37 @@ public class Pelicula implements Serializable {
         if (datos == null || datos.length != 11) {
             return null;
         }
-        Pelicula pel = new Pelicula(datos[0], datos[1], datos[2], datos[3], datos[4].split("\t"), datos[5], datos[6], datos[7].split("\t"), datos[8], datos[9], datos[10]);
+        Pelicula pel;
+        pel = new Pelicula(datos[0], 
+                datos[1],
+                datos[2],
+                datos[3],
+                datos[4].split("\t"),
+                datos[5],
+                datos[6],
+                datos[7].split("\t"),
+                datos[8],
+                datos[9],
+                datos[10]);
         return pel;
     }
 
     // CONVERSOR A STRING
 
     public String[] toStringArray() {
-        String[] datos = {titulo, año, duracion, pais, String.join("\t", direccion), guionista, musica, String.join("\t", reparto), productora, genero, sinopsis};
+        String[] datos = {
+            titulo, 
+            año, 
+            duracion, 
+            pais, 
+            String.join("\t", direccion), 
+            guionista, 
+            musica, 
+            String.join("\t", reparto), 
+            productora, 
+            genero, 
+            sinopsis};
+        
         return datos;
     }
 

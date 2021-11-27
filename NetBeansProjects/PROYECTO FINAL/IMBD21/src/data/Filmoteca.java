@@ -10,7 +10,7 @@ public class Filmoteca {
     private List<Pelicula> peliculas;
     private List<Director> directores;
     private List<Actor> actores;
-    private List<Path> rutasArchivos;
+    private final List<Path> rutasArchivos;
 
     // Constructor
     public Filmoteca() {
