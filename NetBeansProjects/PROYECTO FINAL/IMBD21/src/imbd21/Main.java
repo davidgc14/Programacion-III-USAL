@@ -9,7 +9,8 @@ public class Main {
         
         View v = new View();
 
-        clear();
+        // comentado para poder ver mensajes de error por pantalla
+        // clear();
 
         v.runMenu("%n1.- Archivos"
                 + "%n2.- Peliculas"
