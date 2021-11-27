@@ -501,7 +501,13 @@ public class Model {
         List<Pelicula> listaPeliculas = new ArrayList<>();
 
         for (int i = 0; i < peliculasActor.length; i++) {
-            listaPeliculas.add(this.film.getPeliculaPorTitulo(peliculasActor[i]));
+            if (this.film.getPeliculaPorTitulo(peliculasActor[i]) == null){
+                Pelicula pel = new Pelicula();
+                pel.setTitulo(peliculasActor[i]);
+                listaPeliculas.add(pel);
+            } else {
+                listaPeliculas.add(this.film.getPeliculaPorTitulo(peliculasActor[i]));
+            }
         }
 
         // ahora necesito ordenarlas por año

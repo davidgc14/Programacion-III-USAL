@@ -31,6 +31,20 @@ public class Pelicula implements Serializable {
         this.genero = genero;
         this.sinopsis = sinopsis;
     }
+    
+    public Pelicula() {
+        this.titulo = "";
+        this.año = "";
+        this.duracion = "";
+        this.pais = "";
+        this.direccion = null;
+        this.guionista = "";
+        this.musica = "";
+        this.reparto = null;
+        this.productora = "";
+        this.genero = "";
+        this.sinopsis = "";
+    }
 
     // FACTORY
 
