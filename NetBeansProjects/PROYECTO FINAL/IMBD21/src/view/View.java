@@ -15,12 +15,15 @@ public class View {
     Controller c = new Controller();
     
 
-    public void runMenu(String menu) {
+    public void runMenu(String menu) throws InterruptedException {
         
         System.out.printf("%n%nBIENVENIDO AL PROGRAMA DE GESTIÓN DE PELÍCULAS%n%n");
 
         String option;
         boolean salir = this.inicioPrograma();
+
+        // tiempo de espera para que el usuario vea los mensajes de error
+        Thread.sleep(5000);
 
         while (!salir) {
 
@@ -53,6 +56,8 @@ public class View {
         if (!c.importarPathArchivos().equals("")) {
             System.out.printf(c.importarPathArchivos());
             // salir = true;
+        } else {
+            System.out.printf("%n%nPath importado con exito.%n%n");
         }
 
         System.out.printf("Importando archivos...%n%n");
@@ -65,8 +70,12 @@ public class View {
 
         String error_peliculas, error_actores, error_directores;
 
-        // Si alguno de los archivos no existe, buscamos con extensión .txt
+        // Si alguno de los archivos no existe, buscamos con extensión .bin
+
+        // PELICULAS
+
         if (f_peliculas.exists()) {
+            System.out.printf("Archivo peliculas.bin encontrado.%n");
             error_peliculas = c.importarArchivo(f_peliculas);
             if (!error_peliculas.isEmpty()) {
                 System.out.printf(error_peliculas);
@@ -75,7 +84,7 @@ public class View {
                 f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.txt");
             
                 if (!f_peliculas.exists()) {
-                    System.out.printf("%nNo se encontró el archivo de películas.%n");
+                    System.out.printf("%nNo se encontró el archivo de películas.txt%n");
                     salir = true;
                 } else {
                     error_peliculas = c.importarArchivo(f_peliculas);
@@ -84,24 +93,32 @@ public class View {
                         salir = true;
                     }
                 }    
+            } else {
+                System.out.printf("Archivo peliculas.bin importado con exito.%n%n");
             }
         } else {
             
+            System.out.printf("%nNo se encontró el archivo peliculas.bin%n");
             f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.txt");
             
             if (!f_peliculas.exists()) {
-                System.out.printf("%nNo se encontró el archivo de películas.%n");
+                System.out.printf("%nNo se encontró el archivo de películas.txt%n");
                 salir = true;
             } else {
                 error_peliculas = c.importarArchivo(f_peliculas);
                 if (!error_peliculas.isEmpty()) {
                     System.out.printf(error_peliculas);
                     salir = true;
+                } else {
+                    System.out.printf("Archivo peliculas.txt importado con exito.%n%n");
                 }
             }
         }
 
+        // ACTORES
+
         if (f_actores.exists()) {
+            System.out.printf("Archivo actores.bin encontrado.%n");
             error_actores = c.importarArchivo(f_actores);
             if (!error_actores.isEmpty()) {
                 System.out.printf(error_actores);
@@ -110,7 +127,7 @@ public class View {
                 f_actores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.txt");
             
                 if (!f_actores.exists()) {
-                    System.out.printf("%nNo se encontró el archivo de actores.%n");
+                    System.out.printf("%nNo se encontró el archivo de actores.txt%n");
                     salir = true;
                 } else {
                     error_actores = c.importarArchivo(f_actores);
@@ -119,9 +136,12 @@ public class View {
                         salir = true;
                     }
                 }
+            } else {
+                System.out.printf("Archivo actores.bin importado con exito.%n%n");
             }
         } else {
 
+            System.out.printf("%nNo se encontró el archivo actores.bin%n");
             f_actores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.txt");
 
             if (!f_actores.exists()) {
@@ -132,12 +152,17 @@ public class View {
                 if (!error_actores.isEmpty()) {
                     System.out.printf(error_actores);
                     salir = true;
+                } else {
+                    System.out.printf("Archivo actores.txt importado con exito.%n%n");
                 }
             }
 
         }
 
+        // DIRECTORES
+
         if (f_directores.exists()) {
+            System.out.printf("Archivo directores.bin encontrado.%n");
             error_directores = c.importarArchivo(f_directores);
             if (!error_directores.isEmpty()) {
                 System.out.printf(error_directores);
@@ -146,7 +171,7 @@ public class View {
                 f_directores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "directores.txt");
             
                 if (!f_directores.exists()) {
-                    System.out.printf("%nNo se encontró el archivo de directores.%n");
+                    System.out.printf("%nNo se encontró el archivo de directores.txt%n");
                     salir = true;
                 } else {
                     error_directores = c.importarArchivo(f_directores);
@@ -155,9 +180,12 @@ public class View {
                         salir = true;
                     }
                 }
+            } else {
+                System.out.printf("Archivo directores.bin importado con exito.%n%n");
             }
         } else {
-                        
+                 
+            System.out.printf("%nNo se encontró el archivo directores.bin%n");
             f_directores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "directores.txt");
 
             if (!f_directores.exists()) {
@@ -168,6 +196,8 @@ public class View {
                 if (!error_directores.isEmpty()) {
                     System.out.printf(error_directores);
                     salir = true;
+                } else {
+                    System.out.printf("Archivo directores.txt importado con exito.%n%n");
                 }
             }
         }

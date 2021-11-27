@@ -5,12 +5,11 @@ import view.View;
 import static com.coti.tools.DiaUtil.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         
         View v = new View();
 
-        // comentado para poder ver mensajes de error por pantalla
-        // clear();
+        clear();
 
         v.runMenu("%n1.- Archivos"
                 + "%n2.- Peliculas"
