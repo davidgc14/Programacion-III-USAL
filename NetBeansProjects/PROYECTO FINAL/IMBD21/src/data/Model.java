@@ -162,7 +162,7 @@ public class Model {
                 this.film.addPath(Rutas.pathToFileInFolderOnDesktop("IMBD21", s + ".bin"));
             }
         } catch (Exception ex) {
-            return "%nERROR: Problema al cargar el archivo binario%n";
+            return "%nERROR: Problema al cargar el path del archivo binario%n";
         }
         
         return "";

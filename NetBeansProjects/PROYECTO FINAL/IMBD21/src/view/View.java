@@ -50,7 +50,7 @@ public class View {
         boolean salir = false;
 
         // importamos las rutas del path
-        if (c.importarPathArchivos().equals("")) {
+        if (!c.importarPathArchivos().equals("")) {
             System.out.printf(c.importarPathArchivos());
             // salir = true;
         }
@@ -66,9 +66,29 @@ public class View {
         String error_peliculas, error_actores, error_directores;
 
         // Si alguno de los archivos no existe, buscamos con extensión .txt
-        if (!f_peliculas.exists()) {
+        if (f_peliculas.exists()) {
+            error_peliculas = c.importarArchivo(f_peliculas);
+            if (!error_peliculas.isEmpty()) {
+                System.out.printf(error_peliculas);
+                System.out.printf("%nIntentamos importar archivo .txt ...%n");
+                
+                f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.txt");
+            
+                if (!f_peliculas.exists()) {
+                    System.out.printf("%nNo se encontró el archivo de películas.%n");
+                    salir = true;
+                } else {
+                    error_peliculas = c.importarArchivo(f_peliculas);
+                    if (!error_peliculas.isEmpty()) {
+                        System.out.printf(error_peliculas);
+                        salir = true;
+                    }
+                }    
+            }
+        } else {
             
             f_peliculas = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.txt");
+            
             if (!f_peliculas.exists()) {
                 System.out.printf("%nNo se encontró el archivo de películas.%n");
                 salir = true;
@@ -79,18 +99,29 @@ public class View {
                     salir = true;
                 }
             }
-
-            
-        } else {
-            error_peliculas = c.importarArchivo(f_peliculas);
-            if (!error_peliculas.isEmpty()) {
-                System.out.printf(error_peliculas);
-                salir = true;
-            }
         }
 
-        if (!f_actores.exists()) {
+        if (f_actores.exists()) {
+            error_actores = c.importarArchivo(f_actores);
+            if (!error_actores.isEmpty()) {
+                System.out.printf(error_actores);
+                System.out.printf("%nIntentamos importar archivo .txt ...%n");
+                
+                f_actores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.txt");
             
+                if (!f_actores.exists()) {
+                    System.out.printf("%nNo se encontró el archivo de actores.%n");
+                    salir = true;
+                } else {
+                    error_actores = c.importarArchivo(f_actores);
+                    if (!error_actores.isEmpty()) {
+                        System.out.printf(error_actores);
+                        salir = true;
+                    }
+                }
+            }
+        } else {
+
             f_actores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.txt");
 
             if (!f_actores.exists()) {
@@ -103,16 +134,30 @@ public class View {
                     salir = true;
                 }
             }
-        } else {
-            error_actores = c.importarArchivo(f_actores);
-            if (!error_actores.isEmpty()) {
-                System.out.printf(error_actores);
-                salir = true;
-            }
+
         }
 
-        if (!f_directores.exists()) {
+        if (f_directores.exists()) {
+            error_directores = c.importarArchivo(f_directores);
+            if (!error_directores.isEmpty()) {
+                System.out.printf(error_directores);
+                System.out.printf("%nIntentamos importar archivo .txt ...%n");
+                
+                f_directores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "directores.txt");
             
+                if (!f_directores.exists()) {
+                    System.out.printf("%nNo se encontró el archivo de directores.%n");
+                    salir = true;
+                } else {
+                    error_directores = c.importarArchivo(f_directores);
+                    if (!error_directores.isEmpty()) {
+                        System.out.printf(error_directores);
+                        salir = true;
+                    }
+                }
+            }
+        } else {
+                        
             f_directores = Rutas.fileToFileInFolderOnDesktop("IMBD21", "directores.txt");
 
             if (!f_directores.exists()) {
@@ -124,12 +169,6 @@ public class View {
                     System.out.printf(error_directores);
                     salir = true;
                 }
-            }
-        } else {
-            error_directores = c.importarArchivo(f_directores);
-            if (!error_directores.isEmpty()) {
-                System.out.printf(error_directores);
-                salir = true;
             }
         }
 
