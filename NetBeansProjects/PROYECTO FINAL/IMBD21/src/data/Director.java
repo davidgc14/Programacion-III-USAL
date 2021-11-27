@@ -1,11 +1,12 @@
 package data;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Director implements Serializable {
     
     private String nombre;
-    private String fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String nacionalidad;
     private String ocupacion;
     private String[] peliculas;
@@ -14,7 +15,7 @@ public class Director implements Serializable {
 
     public Director(String nombre, String fechaNacimiento, String nacionalidad, String ocupacion, String[] peliculas) {
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = LocalDate.parse(fechaNacimiento);
         this.nacionalidad = nacionalidad;
         this.ocupacion = ocupacion;
         this.peliculas = peliculas;
@@ -51,11 +52,11 @@ public class Director implements Serializable {
     }
 
     public String getFechaNacimiento() {
-        return fechaNacimiento;
+        return fechaNacimiento.toString();
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = LocalDate.parse(fechaNacimiento);
     }
 
     public String getNacionalidad() {
