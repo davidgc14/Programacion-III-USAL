@@ -70,11 +70,14 @@
     
     Se han aportado a nivel general un alto contenido de mensajes de error, para que el usuario pueda identificar no sólo los errores sino 
     también su ubicación para la posterior corrección. Así mismo, y con idéntica finalidad, se han añadido mensajes de información al inicio del programa,
-    para informar acerca de los archivos que han sido importados y el estado de éstos. Por ello he añadido una parada temporal en el programa
-    inicial (runMenu) para que el usuario pueda ver los mensajes de información referentes a la importación de archivos que se acaba de realizar.
-    Dicha parada no es estrictamente necesaria, y se puede eliminar en el futuro junto con el clear() que se ejecuta cada vez que se encuentra 
-    en el bucle while del runMenu en la clase View. Dicha parada ha requerido un throws InterruptedException en el runMenu para informar de que 
-    se dará lugar una parada temporal de 5000 milisegundos, que ha sido ejecutada mediante Thread.sleep(time).
+    para informar acerca de los archivos que han sido importados y el estado de éstos. 
+    
+    Por ello he añadido, en una comentario, una parada temporal en el programa inicial (runMenu) para que el usuario pueda ver los mensajes de información 
+    referentes a la importación de archivos que se acaba de realizar.
+    Dicha parada no es estrictamente necesaria (además, no está en funcionamiento. Se encuentra comentada en la linea 26 de View.java), 
+    y se puede eliminar en el futuro junto con el clear() que se ejecuta cada vez que se encuentra 
+    en el bucle while del runMenu en la clase View. Dicha parada ha requerido un throws InterruptedException en el runMenu (también en un comentario en la línea
+    8) para informar de que se dará lugar una parada temporal de 5000 milisegundos, que ha sido ejecutada mediante Thread.sleep(time) de la línea 26.
 
     Se ha procurado un uso máximo de biblioteca.jar, mediante la cual ha sido usado el método printToScreen3() en la clase ViewAux para la impresión
     de listas requeridas para el proyecto.

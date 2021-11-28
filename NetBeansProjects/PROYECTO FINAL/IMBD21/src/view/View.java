@@ -15,7 +15,7 @@ public class View {
     Controller c = new Controller();
     
 
-    public void runMenu(String menu) throws InterruptedException {
+    public void runMenu(String menu) { //throws InterruptedException {
         
         System.out.printf("%n%nBIENVENIDO AL PROGRAMA DE GESTIÓN DE PELÍCULAS%n%n");
 
@@ -23,7 +23,7 @@ public class View {
         boolean salir = this.inicioPrograma();
 
         // tiempo de espera para que el usuario vea los mensajes de error
-        Thread.sleep(5000);
+        // Thread.sleep(5000);
 
         while (!salir) {
 
@@ -37,7 +37,12 @@ public class View {
                 case "3" -> this.menuDirectores();
                 case "4" -> this.menuActores();
                 case "5" -> this.menuListados();
-                case "q" -> {this.cierrePrograma(); salir = true;}
+                case "q" -> {
+                    if (siOno("¿Está seguro que desea salir del programa?")) {
+                        salir = true;
+                        this.cierrePrograma();
+                    }
+                }
                 default  -> System.out.printf("%nOpción incorrecta%n");
             }
         } // end while
