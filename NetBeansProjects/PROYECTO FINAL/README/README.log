@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.29)  28 NOV 2021 16:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.29)  1 DEC 2021 10:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -534,15 +534,25 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 LaTeX Info: Redefining \. on input line 49.
 LaTeX Info: Redefining \% on input line 49.
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--85
 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 96--101
+
+ []
+
+[2] 
 AED: lastpage setting LastPage
-[2] (/home/usuario/Documentos/Programacion-III-USAL/NetBeansProjects/PROYECTO FINAL/README/README.aux
+[3] (/home/usuario/Documentos/Programacion-III-USAL/NetBeansProjects/PROYECTO FINAL/README/README.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) )
@@ -551,18 +561,18 @@ LaTeX Info: Redefining \% on input line 7.
 ### semi simple group (level 1) entered at line 50 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 27020 strings out of 481239
- 653988 string characters out of 5920377
- 1024973 words of memory out of 5000000
+ 27038 strings out of 481239
+ 654120 string characters out of 5920377
+ 1025973 words of memory out of 5000000
  41817 multiletter control sequences out of 15000+600000
- 534867 words of font info for 44 fonts, out of 8000000 for 9000
+ 535326 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,5n,98p,811b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on "/home/usuario/Documentos/Programacion-III-USAL/NetBeansProjects/PROYECTO FINAL/README/README.pdf" (2 pages, 44926 bytes).
+Output written on "/home/usuario/Documentos/Programacion-III-USAL/NetBeansProjects/PROYECTO FINAL/README/README.pdf" (3 pages, 46968 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 29 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
