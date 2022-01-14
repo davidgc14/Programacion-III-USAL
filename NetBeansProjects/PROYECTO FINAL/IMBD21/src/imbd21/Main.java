@@ -1,5 +1,11 @@
 package imbd21;
 
+// DAVID GARCIA CURBELO
+// Use este proyecto a fines formativos en la universidad 
+// de Salamanca. No te copies porque te van a pillar. 
+// No lo uses para nada malo.
+// Si quieres colaborar conmigo, puedes contribuir por paypal a la cuenta asociada.
+
 import view.View;
 
 import static com.coti.tools.DiaUtil.*;
