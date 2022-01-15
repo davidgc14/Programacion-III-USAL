@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/curbelo/Documentos/Programacion-III-USAL/biblioteca.jar"
+    ]
+}
