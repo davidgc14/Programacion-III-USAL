@@ -30,16 +30,24 @@ public class Model {
     }
 
 
-
-
-
-
-
-
-
     public String[][] listarContactos() {
+
         String[][] listado = new String[contactos.size()][3];
 
+        for (int i = 0 ; i<contactos.size() ; i++) {
+            listado[i][0] = contactos.get(i).getNombre();
+            listado[i][1] = contactos.get(i).getApellido();
+            listado[i][2] = String.valueOf(contactos.get(i).getNumero());
+        }
+        
         return listado;
     }
-}
+
+
+    public void anadirContacto(String nombre, String apellido, int numero) {
+        contactos.add(new Contacto(nombre, apellido, numero));
+    }
+
+
+
+} // end class Model

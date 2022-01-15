@@ -33,7 +33,7 @@ public class View {
 
             switch(option.toLowerCase()) {
                 case "1" -> this.listarContactos();
-                //case "2" -> this.anadirContacto();
+                case "2" -> this.anadirContacto();
                 //case "3" -> this.buscarContacto();
                 //case "4" -> this.borrarContacto();
                 case "q" -> salir = true;
@@ -55,9 +55,6 @@ public class View {
         }
     }
 
-
-
-
     private void listarContactos() {
         System.out.println("Listado de contactos");
 
@@ -66,6 +63,22 @@ public class View {
         } catch (Exception ex) {
             System.out.println("Error al listar contactos");
         }
+    }
+
+    private void anadirContacto() {
+        System.out.println("Añadiendo contacto...");
+
+        String nombre   = readString("Nombre   : ");
+        String apellido = readString("Apellido : ");
+        String numero   = readString("Número   : ");
+
+        try {
+            c.anadirContacto(nombre, apellido, Integer.parseInt(numero));
+        } catch (Exception ex) {
+            System.out.println("Error al añadir contacto");
+        }
+
+        System.out.println("Contacto añadido");
     }
 
 } // end class

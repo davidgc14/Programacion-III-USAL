@@ -15,4 +15,8 @@ public class Controller {
     public String[][] listarContactos() {
         return m.listarContactos();
     }
+
+    public void anadirContacto(String nombre, String apellido, int numero) {
+        m.anadirContacto(nombre, apellido, numero);
+    }
 }
