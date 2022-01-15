@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/home/usuario/Documentos/Programacion-III-USAL/biblioteca.jar"
+        "/home/usuario/Documentos/Programacion-III-USAL/biblioteca.jar",
+        "/home/curbelo/Documentos/Programacion-III-USAL/biblioteca.jar"
     ]
 }
