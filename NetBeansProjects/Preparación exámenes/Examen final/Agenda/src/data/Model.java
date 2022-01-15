@@ -2,6 +2,8 @@ package data;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
+
 import static com.coti.tools.OpMat.*;
 
 
@@ -30,7 +32,7 @@ public class Model {
     }
 
 
-    public String[][] listarContactos() {
+    private String[][] listarContactos() {
 
         String[][] listado = new String[contactos.size()][3];
 
@@ -43,6 +45,16 @@ public class Model {
         return listado;
     }
 
+    public String[][] listarContactosPorNombre() {
+        contactos.sort(Comparator.comparing(Contacto::getNombre));
+        return listarContactos();
+    }
+
+    public String[][] listarContactosPorApellido() {
+        contactos.sort(Comparator.comparing(Contacto::getApellido));
+        return listarContactos();
+    }
+
 
     public void anadirContacto(String nombre, String apellido, int numero) {
         contactos.add(new Contacto(nombre, apellido, numero));
@@ -50,4 +62,34 @@ public class Model {
 
 
 
+    public String exportarContactos(File f) {
+
+        String[][] tmp = listarContactos();
+
+        try {
+            exportToDisk(tmp, f, "\t");
+        } catch (Exception ex) {
+            return "ERROR: no se han podido exportar los datos. Se perderán los datos guardados.";
+        }
+        return null;
+    }
+
+
+    public boolean verSiExiste(String borrar) {
+        boolean existe = false;
+        Contacto encontrado = new Contacto("", "", 0);
+        for (Contacto c : contactos) {
+            if (borrar.equalsIgnoreCase(c.getNombre()+" "+c.getApellido())) {
+                existe = true;
+                encontrado = c;
+            }
+        }
+        contactos.remove(encontrado);
+
+        return existe;
+    }
+
+
+
 } // end class Model
+
