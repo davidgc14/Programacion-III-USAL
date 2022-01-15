@@ -16,7 +16,7 @@ public class Contacto {
         if (nuevo.length != 3) {
             return null;
         }
-        return new Contacto(nuevo[0], nuevo[1], Integer.parseInt(nuevo[2]));
+        return new Contacto(nuevo[0].trim(), nuevo[1].trim(), Integer.parseInt(nuevo[2].trim()));
     }
 
 
