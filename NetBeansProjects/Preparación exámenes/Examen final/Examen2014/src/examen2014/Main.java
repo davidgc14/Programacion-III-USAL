@@ -12,11 +12,16 @@ public class Main {
 
         clear();
 
-        v.runMenu("Elija una opción para comenzar: %n"
-                + "1. Libros %n"
-                + "2. Revistas %n"
-                + "q. Salir %n"
+        v.menuLibros("MENU LIBROS%n"
+                + "1. Añadir libro %n"
+                + "2. Editar libro %n"
+                + "3. Buscar libro %n"
+                + "4. Eliminar libro %n"
+                + "5. Lista completa %n"
+                + "q. Volver %n"
                 + "       >   ");
+        
+        showFinalTime();
 
     }
     
