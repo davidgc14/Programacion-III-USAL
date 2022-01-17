@@ -16,10 +16,13 @@ public class View {
         
         String opcion;
 
-        boolean salir = false;
+        boolean salir;
 
-        this.openFiles("peliculas");
-        this.openFiles("actores");
+        salir = this.openFiles("peliculas");
+        if(!salir) {
+            salir = this.openFiles("actores");
+        }
+        
 
         while(!salir) {
             
@@ -38,7 +41,7 @@ public class View {
     // Inicio y cierre de ficheros ---------------------------------------------------
 
     private boolean openFiles(String nombre) {
-        File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", nombre + "bin");
+        File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", nombre + ".bin");
         boolean salir = false;
         if (f.exists()) {
             String mensaje = c.importarArchivo(f);
@@ -50,7 +53,7 @@ public class View {
         } else {
             System.out.printf("ERROR: No se encuentra el fichero %s%n", f.getName());
             System.out.println("Importando fichero por defecto...");
-            f = Rutas.fileToFileInFolderOnDesktop("IMBD21", nombre + "txt");
+            f = Rutas.fileToFileInFolderOnDesktop("IMBD21", nombre + ".txt");
             if (f.exists()) {
                 c.importarArchivo(f);
             } else {
