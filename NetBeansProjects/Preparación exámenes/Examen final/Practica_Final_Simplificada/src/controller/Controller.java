@@ -11,4 +11,11 @@ public class Controller {
     public String importarArchivo(File f) {
         return m.importarArchivo(f);
     }
+
+    // menu peliculas ---------------------------------------------------
+
+    public String[][] listarPeliculas() {
+        return m.listarPeliculas();
+    }
 }
+

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import static com.coti.tools.OpMat.*;
 
@@ -12,6 +13,8 @@ public class Model {
     
     private ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
     private ArrayList<Actor> actores = new ArrayList<Actor>();
+
+    // importaciones ---------------------------------------------------
 
     public String importarArchivo(File f) {
 
@@ -75,5 +78,33 @@ public class Model {
         }
         
         return "";
+    }
+
+
+    // menu peliculas ---------------------------------------------------
+
+    public String[][] listarPeliculas() {
+        
+        peliculas.sort(Comparator.comparing(Pelicula::getAño).thenComparing(Pelicula::getTitulo));
+        
+
+
+        String[][] tmp = new String[peliculas.size() + 1][5];
+
+        tmp[0][0] = "TITULO";
+        tmp[0][1] = "AÑO";
+        tmp[0][2] = "DURACION";
+        tmp[0][3] = "PAIS";
+        tmp[0][4] = "GENERO";
+
+        for(int i=0 ; i < peliculas.size() ; i++) {
+            tmp[i+1][0] = peliculas.get(i).getTitulo();
+            tmp[i+1][1] = peliculas.get(i).getAño();
+            tmp[i+1][2] = peliculas.get(i).getDuracion();
+            tmp[i+1][3] = peliculas.get(i).getPais();
+            tmp[i+1][4] = peliculas.get(i).getGenero();
+            
+        }
+        return tmp;
     }
 }

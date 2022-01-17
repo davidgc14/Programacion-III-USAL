@@ -3,6 +3,8 @@ package view;
 import controller.Controller;
 
 import static com.coti.tools.Esdia.*;
+import static com.coti.tools.OpMat.*;
+
 import com.coti.tools.Rutas;
 
 import java.io.File;
@@ -86,11 +88,67 @@ public class View {
     // Menus -------------------------------------------------------------------------
 
     private void menuPeliculas() {
+        String opcion;
+
+        boolean salir = false;
+
+        while(!salir) {
+
+            opcion = readString("1.- Añadir película"
+                    + "%n2.- Eliminar película"
+                    + "%n3.- Modificar película"
+                    + "%n4.- Buscar película"
+                    + "%n5.- Listar películas"
+                    + "%nq.- Salir"
+                    + "%n      >     ");
+
+            switch(opcion) {
+                case "1" -> this.addPelicula();
+                case "2" -> this.deletePelicula();
+                case "3" -> this.modifyPelicula();
+                case "4" -> this.searchPelicula();
+                case "5" -> this.listPeliculas();
+                case "q" -> salir = true;
+                default -> System.out.printf("Opción incorrecta%n%n");
+            }
+        }
+    }
+
+
+    private void menuActores() {
+        System.out.println("Aún no implementado");
+        // unmantained
+    }
+
+
+    // Peliculas
+    
+    private void addPelicula() {
 
     }
 
-    private void menuActores() {
+    private void deletePelicula() {
 
+    }
+
+    private void modifyPelicula() {
+
+    }
+
+    private void searchPelicula() {
+
+    }
+
+    private void listPeliculas() {
+        underline2("LISTA COMPLETA DE PELICULAS");
+
+        String[][] tmp = c.listarPeliculas();
+
+        try {
+            printToScreen3(tmp);
+        } catch (Exception ex) {
+            System.out.println("Error al imprimir peliculas");
+        }
     }
 
 
