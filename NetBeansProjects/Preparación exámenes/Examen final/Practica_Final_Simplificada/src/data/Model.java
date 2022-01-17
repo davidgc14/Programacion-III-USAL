@@ -50,7 +50,7 @@ public class Model {
         }
 
         if (!mensaje.isEmpty()) {
-
+            mensaje.concat(importarTXT(f));
         }
 
         return mensaje;

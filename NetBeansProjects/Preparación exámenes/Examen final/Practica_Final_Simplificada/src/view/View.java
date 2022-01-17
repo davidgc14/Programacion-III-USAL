@@ -43,8 +43,11 @@ public class View {
     private boolean openFiles(String nombre) {
         File f = Rutas.fileToFileInFolderOnDesktop("IMBD21", nombre + ".bin");
         boolean salir = false;
+        
         if (f.exists()) {
+            System.out.println("Importando fichero binario de " + nombre + "...");
             String mensaje = c.importarArchivo(f);
+            
             if (mensaje.isEmpty()) {
                 System.out.println("Importación correcta del archivo " + f.getName());
             } else {
@@ -54,14 +57,23 @@ public class View {
             System.out.printf("ERROR: No se encuentra el fichero %s%n", f.getName());
             System.out.println("Importando fichero por defecto...");
             f = Rutas.fileToFileInFolderOnDesktop("IMBD21", nombre + ".txt");
+            
             if (f.exists()) {
-                c.importarArchivo(f);
+                String mensaje = c.importarArchivo(f);
+                
+                if (mensaje.isEmpty()) {
+                    System.out.println("Importación correcta del archivo " + f.getName());
+                } else {
+                    System.out.println(mensaje);
+                }
+                
             } else {
                 System.out.printf("ERROR: Tampoco se encuentra el fichero %s%n", f.getName());
                 System.out.println("No se puede continuar");
                 salir = true;
             }
         }
+        System.out.println("------------------------------------------------------");
         return salir;
     }
 
