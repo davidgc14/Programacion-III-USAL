@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import com.coti.tools.Rutas;
 
@@ -92,6 +93,7 @@ public class Model {
 
     public void addLibro(String[] datos) {
         this.lista.add(Libro.factory(datos));
+        ordenarLista();
     }
 
     public void editLibro(int parametro, int puestoEnLista, String nuevoValor) {
@@ -100,6 +102,7 @@ public class Model {
             case 2 -> lista.get(puestoEnLista).setFecha(Integer.parseInt(nuevoValor));
             case 3 -> lista.get(puestoEnLista).setIsbn(Integer.parseInt(nuevoValor));
         }
+        ordenarLista();
     }
 
     public String imprimirLibro(int puestoEnLista) {
@@ -144,6 +147,10 @@ public class Model {
             }
         }
         return -1;
+    }
+
+    private void ordenarLista() {
+        lista.sort(Comparator.comparing(Libro::getTitulo).thenComparing(Libro::getAutor));
     }
 
 
