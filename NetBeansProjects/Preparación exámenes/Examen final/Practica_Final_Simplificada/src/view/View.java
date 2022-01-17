@@ -164,10 +164,20 @@ public class View {
     }
 
     private void modifyPelicula() {
-
+        // unmantained
+        System.out.println("MODIFICANDO PELÍCULA");
     }
 
     private void searchPelicula() {
+        String nombre = readString("Nombre de la película a buscar: ");
+
+        String mensaje = c.searchPelicula(nombre);
+
+        if (mensaje.isEmpty()) {
+            System.out.println("Película no encontrada");
+        } else {
+            System.out.printf(mensaje);
+        }
 
     }
 

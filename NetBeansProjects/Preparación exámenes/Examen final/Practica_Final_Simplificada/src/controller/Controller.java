@@ -22,6 +22,10 @@ public class Controller {
         return m.deletePelicula(nombre);
     }
 
+    public String searchPelicula(String nombre) {
+        return m.searchPelicula(nombre);
+    }
+
     public String[][] listarPeliculas() {
         return m.listarPeliculas();
     }

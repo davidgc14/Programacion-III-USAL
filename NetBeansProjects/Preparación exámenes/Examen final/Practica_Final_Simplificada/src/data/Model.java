@@ -105,6 +105,22 @@ public class Model {
         return "";
     }
 
+    public String searchPelicula(String nombre) {
+
+        Pelicula pel = verSiEstaPelicula(nombre);
+        if (pel != null) {
+                String pelToString = pel.getTitulo() + "%n" 
+                                    + pel.getAño() + "%n"
+                                    + pel.getDuracion() + "%n"
+                                    + pel.getGenero() + "%n"
+                                    + pel.getSinopsis() + "%n"
+                                    + pel.getPais() + "%n%n";
+            
+            return pelToString;
+        } else {
+            return "ERROR: pelicula no encontrada";
+        }
+    }
 
     public String[][] listarPeliculas() {
         
