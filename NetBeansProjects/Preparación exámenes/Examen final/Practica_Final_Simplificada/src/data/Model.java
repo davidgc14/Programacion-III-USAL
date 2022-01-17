@@ -83,6 +83,29 @@ public class Model {
 
     // menu peliculas ---------------------------------------------------
 
+    public String addPelicula(String[] datos) {
+       
+        try {
+           peliculas.add(Pelicula.factory(datos));
+        } catch (Exception ex) {
+            return "ERROR: no se pudo guardar la pelicula. Revise código e inténtelo más tarde";
+        }
+ 
+        return "";
+    }
+
+    public String deletePelicula(String nombre) {
+
+        Pelicula pel = verSiEstaPelicula(nombre);
+        if (pel != null) {
+            peliculas.remove(pel);
+        } else {
+            return "ERROR: pelicula no encontrada";
+        }
+        return "";
+    }
+
+
     public String[][] listarPeliculas() {
         
         peliculas.sort(Comparator.comparing(Pelicula::getAño).thenComparing(Pelicula::getTitulo));
@@ -106,5 +129,18 @@ public class Model {
             
         }
         return tmp;
+    }
+
+
+    // menu auxiliar ---------------------------------------------------
+
+    private Pelicula verSiEstaPelicula(String nombre) {
+        
+        for (int i = 0 ; peliculas.size() > i ; i++) {
+            if (peliculas.get(i).getTitulo().equalsIgnoreCase(nombre)) {
+                return peliculas.get(i);
+            }
+        }
+        return null;
     }
 }

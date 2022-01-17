@@ -14,6 +14,14 @@ public class Controller {
 
     // menu peliculas ---------------------------------------------------
 
+    public String addPelicula(String[] datos) {
+        return m.addPelicula(datos);
+    }
+
+    public String deletePelicula(String nombre) {
+        return m.deletePelicula(nombre);
+    }
+
     public String[][] listarPeliculas() {
         return m.listarPeliculas();
     }

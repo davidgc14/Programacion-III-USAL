@@ -124,11 +124,43 @@ public class View {
     // Peliculas
     
     private void addPelicula() {
+        System.out.println("AÑADIENDO PELICULA NUEVA");
 
+        String titulo    = readString("Título     : ");
+        String año       = readString("Año        : ");
+        String duracion  = readString("Duración   : ");
+        String pais      = readString("País       : ");
+        String direccion = readString("Dirección  : ").replace(",", "\t");
+        String guionista = readString("Guionista  : ");
+        String musica    = readString("Música     : ");
+        String reparto   = readString("Reparto    : ").replace(",", "\t");
+        String productora= readString("Productora : ");
+        String genero    = readString("Género     : ");
+        String sinopsis  = readString("Sinopsis   : ");
+
+        String[] datos = {titulo, año, duracion, pais, direccion, guionista, musica, reparto, productora, genero, sinopsis};
+        
+        
+        String mensaje = c.addPelicula(datos);
+
+        if (mensaje.isEmpty()) {
+            System.out.println("Película añadida correctamente");
+        } else {
+            System.out.println(mensaje);
+        }
     }
 
     private void deletePelicula() {
 
+        String nombre = readString("Nombre de la película a eliminar: ");
+
+        String mensaje = c.deletePelicula(nombre);
+
+        if (mensaje.isEmpty()) {
+            System.out.println("Película eliminada correctamente");
+        } else {
+            System.out.println(mensaje);
+        }
     }
 
     private void modifyPelicula() {
