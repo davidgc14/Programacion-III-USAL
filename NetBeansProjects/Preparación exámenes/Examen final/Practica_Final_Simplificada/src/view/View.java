@@ -81,6 +81,13 @@ public class View {
 
     private boolean save() {
 
+        File f1 = Rutas.fileToFileInFolderOnDesktop("IMBD21", "peliculas.bin");
+        File f2 = Rutas.fileToFileInFolderOnDesktop("IMBD21", "actores.bin");
+
+        String mensaje = c.save(f1, f2);
+
+        System.out.printf(mensaje);
+
         return true;
     }
 

@@ -12,6 +12,10 @@ public class Controller {
         return m.importarArchivo(f);
     }
 
+    public String save(File f1, File f2) {
+        return m.save(f1, f2);
+    }
+
     // menu peliculas ---------------------------------------------------
 
     public String addPelicula(String[] datos) {

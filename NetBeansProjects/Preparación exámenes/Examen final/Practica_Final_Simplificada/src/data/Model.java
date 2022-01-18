@@ -1,9 +1,12 @@
 package data;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -80,6 +83,38 @@ public class Model {
         return "";
     }
 
+    public String save(File f1, File f2) {
+
+        String mensaje = "Exportando archivos...%n";
+
+        try {
+            FileOutputStream fos = new FileOutputStream(f1);
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(peliculas);
+            oos.close();
+            mensaje = mensaje + "%nArchivo peliculas guardado correctamente%n";
+
+        } catch (Exception ex) {
+            mensaje.concat("Error en la exportacion de peliculas %n");
+        }
+
+        try {
+            FileOutputStream fos = new FileOutputStream(f2);
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(actores);
+            oos.close();
+            mensaje = mensaje + "%nArchivo actores guardado correctamente%n";
+
+        } catch (Exception ex) {
+            mensaje.concat("Error en la exportacion de actores %n");
+        }
+
+        
+
+        return mensaje;
+    }
 
     // menu peliculas ---------------------------------------------------
 
